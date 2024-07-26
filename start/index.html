@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<!-- made with love by Happy GrassBlock :3 -->
+<html>
+<head>
+    <script type="text/javascript" src="/start/chrome/random-newtab.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" type="image/png" href="/start/skin/icons/128.png">
+    <title>New Tab</title>
+
+    <!-- External Style -->
+    <link rel="stylesheet" type="text/css" href="/start/skin/css/sweetalert.css">
+    <!-- Newtab Styles -->
+    <link rel="stylesheet" type="text/css" href="/start/skin/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/start/skin/css/animate.min.css">
+
+    <!-- initialize utils and common -->
+    <script data-source="internal" type="text/javascript" src="/start/chrome/settings.js"></script>
+    <script data-source="internal" type="text/javascript" src="/start/common/prefs-sys.js"></script>
+    <script data-source="internal" type="text/javascript" src="/start/chrome/utils.js"></script>
+    <style>
+        #myWeather {
+            position: absolute;
+            margin-top: -0.5%;
+            transform: translateX(89.5%);
+        }
+        .widght {
+            transform: translateX(-36%);
+        }
+    
+        /* Dropdown Button */
+        .dropdown {
+            background-color: transparent; /* Remove the green background */
+            position: relative;
+            display: inline-block;
+            padding: 0;
+        }
+    
+        .dropbtn {
+            background-color: transparent; /* Remove the green background */
+            padding: 10px 16px; /* Adjust padding for a better fit */
+            border: 0px solid #ccc; /* Remove border */
+            cursor: pointer;
+            color: white;
+            font-family: 'neue', Helvetica, Arial, sans-serif;
+            text-align: left; /* Align text to the left */
+            border-radius: 4px; /* Add rounded corners for a softer look */
+        }
+    
+        .dropdown-content {
+            position: absolute;
+            min-width: 300px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding: 10px;
+            max-height: 0; /* Start with 0 height */
+            overflow: hidden; /* Hide content that overflows */
+            opacity: 0; /* Start with 0 opacity */
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Smooth transition */
+        }
+    
+        .input-wrapper {
+            margin-bottom: 10px;
+        }
+    
+        .input-wrapper input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif; /* Match font with dropdown */
+        }
+    
+        /* Site Entry */
+        .site-entry {
+            display: flex;
+            align-items: center;
+            padding: 8px; /* Increased padding for a more spacious feel */
+            font-family: Arial, sans-serif; /* Consistent font */
+            position: relative; /* Needed for positioning the control buttons */
+        }
+    
+        .site-entry img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+    
+        /* Control Buttons */
+        .entry-controls {
+            display: none; /* Hide buttons by default */
+            position: absolute;
+            right: 10px; /* Align buttons to the right side */
+            top: 50%;
+            transform: translateY(-50%);
+            gap: 5px;
+        }
+    
+        /* Show control buttons on hover */
+        .site-entry:hover .entry-controls {
+            display: flex;
+        }
+    
+        /* Common button styles */
+.entry-controls button {
+    border: none; /* Remove border */
+    border-radius: 50%; /* Make the button circular */
+    width: 20px; /* Adjust width for a smaller button */
+    height: 20px; /* Adjust height for a smaller button */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Flexbox to center the content */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    cursor: pointer;
+    font-size: 0; /* Hide text */
+    line-height: 0; /* Hide text line height */
+    font-family: Arial, sans-serif; /* Match font with dropdown */
+}
+
+/* Individual button styles */
+.btn-up {
+    background: url('skin/icons/google/up.png') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the button */
+}
+
+.btn-down {
+    background: url('skin/icons/google/down.png') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the button */
+}
+
+.btn-remove {
+    background: url('skin/icons/close.png') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the button */
+}
+
+/* Hover effects for each button */
+.btn-up:hover {
+    background: url('skin/icons/google/up-hover.png') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the button */
+}
+
+.btn-down:hover {
+    background: url('skin/icons/google/down-hover.png') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the button */
+}
+
+.btn-remove:hover {
+    background: url('skin/icons/close.png') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the button */
+}
+    
+        /* Show the dropdown content */
+        .dropdown:hover .dropdown-content {
+            max-height: 300px; /* Adjust based on content size */
+            opacity: 1;
+        }
+    </style>
+    
+    
+    
+    
+    
+    
+    
+    
+</head>
+<body>
+    
+    
+    
+      
+
+
+<!-- background -->
+<div class="background" id="__bg" style="display: none;">
+    <div class="top_gradient"></div>
+    <div class="bottom_gradient"></div>
+</div>
+<script data-source="internal" type="text/javascript" src="/start/search/front-load.js"></script>
+
+<!-- begin main content -->
+<div id="wrapper" style="display: none; width: 50%;">
+
+    <nav>
+        <div class="most_visited">
+            <a id="lnk_topsites">Most Visited</a>
+            <div class="nav_menu" id="topsites_menu">
+                
+            </div>
+        </div>
+
+        <div class="apps">
+            <a id="lnk_tool">Apps</a>
+            <div class="nav_menu" id="tool_menu">
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Bookmarks</button>
+            <div class="dropdown-content" id="dropdownContent">
+                <div class="input-wrapper">
+                    <input type="text" id="urlInput" placeholder="Enter URL" />
+                </div>
+                <div id="siteList">
+                    <!-- Entries will be added here -->
+                </div>
+                
+                <!-- Entry Template -->
+                <template id="siteEntryTemplate">
+                    <li class="site-entry">
+                        <img src="" alt="Site Icon">
+                        <span></span>
+                        <div class="entry-controls">
+                            <button class="move-up"></button>
+                            <button class="move-down"></button>
+                            <button class="remove"></button>
+                        </div>
+                    </li>
+                </template>
+            </div>
+        </div>
+        
+<!-- made with love by Happy GrassBlock :3 -->
+       
+    </nav>
+
+    <div class="search-box">
+        
+        <div id="search-box-wrapper">
+            <div id="search-box">
+                <input id="search-input" dir="auto" type="search" autofocus="autofocus" tabindex="1" placeholder="Search Google"/>
+            </div>
+        </div>
+        <ul id="search-suggestion-pad"></ul>
+    </div>
+
+    <div class="widght">
+        <div class="toggle" data-toggle="tooltip" data-placement="bottom" title="Click to change your background">
+            <span id="background_selector_menu">Options</span>
+            <!--<a href="#" id="background_selector"><img id="background_selector_img" src="/start/skin/images/brush-white.png"></a>-->
+            <span href="#" id="weather" class="clock" ><img src="/start/skin/images/clock.png"></span>
+        </div>
+        <div class="time" data-toggle="tooltip" data-placement="bottom" title="Click to change between 24 and 12 hours">
+            <h1 class="hour">
+                12:00
+            </h1>
+            <div class="ampm">AM</div>
+            <div class="date">
+                <p class="day">Saturday</p>
+                <p class="num">31.12.2016</p>
+            </div>
+        </div>
+        <div class="weather">
+            
+            <h1 data-toggle="tooltip" data-placement="bottom" title="Click to change between °F and °C">
+              <span class="val"></span><em class="deg">&deg;</em><span id="weather_widget_unit" class="units">C</span>
+            </h1>
+            <div id="weather_info_display" class="fright" data-toggle="tooltip" data-placement="bottom" title="Click to change city">
+                <!--<div class="icon"><img src="" alt=""></div>-->
+                <div class="condition"></div>
+                <div class="city"></div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div id="myWeather" style="width: 100%;">
+        <iframe src='https://00f56684849f469abe8a8abfb1c02d93.elf.site' width='100%' height='1000' frameborder='0'></iframe>
+    </div>
+
+    <div id="error_box">
+        <table>
+            <tr>
+            <td id="error_weather_messager">
+                <p>Unable to get weather data. Click here to change city for weather.</p>
+            </td>
+            <td data-toggle="tooltip" data-placement="bottom" title="Click to disable Weather Indicator">
+                <img id="delete_button" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAEaUlEQVRoQ+2ZP0wjRxTGPzc265zOoOAGFyEVlNBE/CkMkk0LqSmAlgpEhYQEkXBlENDQAgX1QYuRbArAnV2CmzgFXIkdRTbnKzh9mx208e2fmb0xF538JMvFzs7Ob95737x9G8IPYqEfhANdkP+bJ7se6XqkQzvQqdBKAugFMNK27jKAGoAr3Tw6QWYBzFk/QngZYc6s37kOKB0gXPwegEEuKJVK1efn52ODg4Po7e3FyMi/TimXy6jVaqhWqzg9Pa1fXl7GLIAqgFULKjDTt4Bw4UcApvr7+//JZrPv5ubmzMXLGKHOzs6wvLzcajabYQAFAEsACKZsQUG4zflwOBxZX183VlZWpAHaV0ignZ2d52w2+9JqtT4BmKYDVUmCgCzSE4ZhtG5ubsIidFQf3D6eoTcxMSG8Q88cq8ypCkJPlIaGhprFYtGQDSPZBdE7Y2Njzfv7ewPAqIpnVECYEyXDMKKPj49h3RACljADAwP0TMOCkcoZFZB8JBIZKxaLPbrCyc1TDLPRUTrEFADmjK/JglBiP2xubmJra8t3Uh0DNjY2njOZTA+A32WkWRbkz3g8Hq9UKj85hVShUMDV1RUIqmIHBwdIJpOvZ439XoZYIpH43Gg0HgD86jevDIjpjaOjIywuUrC+tv39fayurprXOU7GlpaWcHx8jL29PVC+nYzXOU7GKzIglMGFp6cnz7OCECcnJ1IwAmJhYcGEcTN6pa+vj5dPADjvonWzDMhTKpUK5XI5UVK4PlgGRhZCPCSdTrOceQFgErmZH8gUT3CvsGqf2AtGFYJzi7C11Isq5mh+IGZ+5PN5TE2RSc6cYIJA8GkUkulpU4E91csPhFq7WSqVHJXFC8sOw3HMBb+ccJrPdqb8AcBV+6VAXl4YouomYHhnEAjxxFDIXOb3AxHhxFWoSHP7lmkDCRJa9pzgwmSluR1CV2gFSnanxJaRZqfg1ZXsyvLrpU5BYGynO6UrsPxyk2rpdDp0cXHx3i/dZSRWFWZmZubvXC5HtfF8h/ZTLVM5ZUoUGQixEbIwuksU6aJRRWIFzFsWjdzIajwe/7lSqbxzKuOpLExKtyrWLSRZfrBicHpRs8r4VqPR+ChaTV6hLRNavP97vFh9ymQyEb/S5PXQ9Etg2/VCJBL5jU2HN3zVZWtVqsiT9Qh52HwoR6NR4+HhoaPNh0QiwZBqWr1j7c0HwpjtoOHh4ebt7W1H2kHj4+PNu7u7jraDXtWTDbpoNNq6vr7W2qCbnJykJ9g+7XiDTsDQMzxlY+x2rK2t9QTtc1Gddnd3n7e3t9kxqVs58SYtUwHDnOFhmaR3Dg8Pw7Ozs9I9YAKcn5+bTWzLC0xsvpdL5cRXFbKCarkNpTTvA/iFA/iOLT4rxGKx/3xWqNfrr58VbD2AvwCwjcLvJYFNRbX8HiI+8vDfr1HBEBIfer4JIMg54gdiv07t9/r05lrFqjzEPlanR4KuQct9XRAt26hxkq5HNG6mlqm6HtGyjRon+QIFQRNRRPZ93AAAAABJRU5ErkJggg==">
+            </td>
+            </tr>
+        </table>
+    </div>
+
+<div id="background_selector_widget" class="triangle-top">
+    <div id="tabs">
+        <ul>
+          <li>
+            <a href="#tab-background">
+              <div class="tab-control">Background</div>
+            </a>
+          </li>
+          <li>
+            <a href="#tab-relative-apps">
+              <div class="tab-control">Must-have Related NewTab</div>
+            </a>
+          </li>
+          <li>
+              <a href="#tab-setting">
+                  <div class="tab-control">Settings</div>
+              </a>
+          </li>
+        </ul>
+        <div class="main">
+            <div id="tab-background">
+                <ul id="images_selector">
+                    <!-- <li><img data-src="bg-01.jpg" src="/start/skin/images/bg-01.jpg"></li> -->
+                </ul>
+            </div>
+            <div id="tab-relative-apps">
+                <div class="t-r-a-s">
+                    <table></table>
+                </div>
+            </div>
+            <div id="tab-setting">
+                <div class="t-r-a-s">
+                    <ul>
+                        <li>
+                          <label>
+                            <span>Background Animation</span>
+                            <label>
+                              <select id="bg_animations" data-toggle="tooltip" data-placement="top" title="Choose a background animation">
+                              </select>
+                            </label>
+                          </label>
+                        </li>
+                        <li>
+                            <label data-toggle="tooltip" data-placement="bottom" title="Auto hide all elements in newtab page after 10 seconds">
+                                <span>Auto Hide (after 10 seconds)</span>
+                                <label for="enable_autohide" class="switch normal" title="on/off">
+                                    <input type="checkbox" id="enable_autohide" />
+                                    <span class="slider round"></span>
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                          <label data-toggle="tooltip" data-placement="top" title="Display / Hide &quot;Sticky Notes&quot; in newtab page">
+                              <span>Sticky Notes</span>
+                              <label for="enable_stickynote" class="switch normal" title="on/off">
+                                  <input type="checkbox" id="enable_stickynote" />
+                                  <span class="slider round"></span>
+                                  <span class="on">ON</span>
+                                  <span class="off">OFF</span>
+                              </label>
+                          </label>
+                        </li>
+                        <li>
+                            <label data-toggle="tooltip" data-placement="top" title="Display / Hide &quot;Todo&quot; in newtab page">
+                                <span>Todo / Tasks</span>
+                                <label for="enable_todo" class="switch normal" title="on/off">
+                                    <input type="checkbox" id="enable_todo" />
+                                    <span class="slider round"></span>
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                            <label data-toggle="tooltip" data-placement="top" title="Display / Hide &quot;Most Visited&quot; in newtab page">
+                                <span>Most Visited</span>
+                                <label class="switch normal" title="on/off">
+                                    <input type="checkbox" id="enable_most_visited" />
+                                    <span class="slider round"></span>
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                            <label data-toggle="tooltip" data-placement="top" title="Display / Hide &quot;Apps&quot; in newtab page">
+                                <span>Apps</span>
+                                <label class="switch normal" title="on/off">
+                                    <input type="checkbox" id="enable_apps" />
+                                    <span class="slider round"></span>
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                            <label data-toggle="tooltip" data-placement="top" title="Display / Hide &quot;Share&quot; in newtab page">
+                            </label>
+                        </li>
+                        <li>
+                            <label data-toggle="tooltip" data-placement="top" title="Auto change the background in an amount of time">
+                                <span>Slideshow</span>
+                                <label class="switch normal" title="on/off">
+                                    <input type="checkbox" id="enable_slideshow" />
+                                    <span class="slider round"></span>
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                </label>
+                            </label>
+                        </li>
+                        <li class="sub-li">
+                            <label id="selectTimer">
+                                <span>
+                                    <i class="icon timer_ic"></i>
+                                    Slideshow: Change picture every
+                                </span>
+                                <label>
+                                    <select>
+                                        <option value="5">5 seconds</option>
+                                        <option value="10">10 seconds</option>
+                                        <option value="30">30 seconds</option>
+                                        <option value="60">1 minute</option>
+                                        <option value="600">10 minutes</option>
+                                        <option value="1800">30 minutes</option>
+                                        <option value="3600">1 hour</option>
+                                    </select>
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                            <label data-toggle="tooltip" data-placement="top" title="Create a countdown timer to a specific date">
+                                <span>Countdown</span>
+                                <label class="switch normal" title="on/off">
+                                    <input type="checkbox" id="enable_countdown" />
+                                    <span class="slider round"></span>
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                </label>
+                            </label>
+                        </li>
+                        <li class="sub-li">
+                            <label>
+                                <span>Countdown Position</span>
+                                <select id="countdown_setPosition" data-toggle="tooltip" data-placement="top" title="Change position of Countdown text">
+                                    <option>Bottom Center</option>
+                                    <option>Center</option>
+                                    <option>Top Right</option>
+                                </select>
+                            </label>
+                        </li>
+                        <!-- Yuki is best girl XD -->
+                        <li class="sub-li">
+                            <label>
+                                <span>Countdown To Time</span>
+                                <input type="datetime-local" id="countdown_setTime" data-toggle="tooltip" data-placement="top" title="Change target date-time of Countdown timer">
+                            </label>
+                        </li>
+                        <li class="sub-li">
+                            <label>
+                                <span>Countdown Text</span>
+                                <input type="text" id="countdown_setText" data-toggle="tooltip" data-placement="top" title="Enter &quot;Countdown To...&quot; text. E.g.: My Birthday">
+                            </label>
+                        </li>
+                        <li class="sub-li">
+                            <label>
+                                <span>Text Color</span>
+                                <input type="color" id="countdown_text_color" >
+                            </label>
+                        </li>
+                        <li class="sub-li">
+                            <label>
+                                <span>Countdown Shade</span>
+                                <label class="switch normal" title="on/off">
+                                    <input type="checkbox" id="countdown_background" />
+                                    <span class="slider round"></span>
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                            <label data-toggle="tooltip" data-placement="top" title="Display snow animation in newtab page">
+                                <span>Snow / Animations</span>
+                                <label class="switch normal" title="on/off">
+                                    <input type="checkbox" id="enable_snow" />
+                                    <span class="slider round"></span>
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                </label>
+                            </label>
+                        </li>
+                        <li class="sub-li">
+                            <label>
+                                <span>Choose An Animation</span>
+                                <label>
+                                    <select id="snow_type" data-toggle="tooltip" data-placement="top" title="Choose a falling effect">
+                                        <option value="flake">Snow flake</option>
+                                        <option value="ball">Snow ball</option>
+                                        <option value="rain">Rain</option>
+                                        <option value="leaves">Leaves</option>
+                                        <option value="fireworks">Fireworks</option>
+                                    </select>
+                                </label>
+                            </label>
+                        </li>
+                        <!-- made with love by Happy GrassBlock :3 -->
+                        <li>
+                            <label>
+                                <span>Set Time Automatically</span>
+                                <label class="switch normal" title="on/off">
+                                    <input type="checkbox" id="setTimeAutomatically">
+                                    <span class="slider round"></span>
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <span>Time Format</span>
+                                <label>
+                                    <select id="time_format">
+                                        <option value="12h">12 Hours</option>
+                                        <option value="24h">24 Hours</option>
+                                    </select>
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <span>Date Format</span>
+                                <label>
+                                    <select id="date_format">
+                                        <option value="{{d}}.{{m}}.{{y}}">Day.Month.Year</option>
+                                        <option value="{{m}}.{{d}}.{{y}}">Month.Day.Year</option>
+                                        <option value="{{y}}.{{m}}.{{d}}">Year.Month.Day</option>
+                                    </select>
+                                </label>
+                            </label>
+                        </li>
+                        <li style="display: none;">
+                            <label>
+                                <span>Temperature Unit</span>
+                                <label>
+                                    <select id="units_weather">
+                                        <option value="imperial">°F</option>
+                                        <option value="metric">°C</option>
+                                    </select>
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                            <a class="lnk_chromethemes" href="/combine-newtab-and-chrome-themes/" target="_blank">
+                                Combine NewTab and Chrome themes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="click-Import" href="#">
+                                Import Settings
+                            </a>
+                            <a class="click-Export" href="#">
+                                Export Settings
+                            </a>
+                            
+                        </li>
+                        <li>
+                            <a class="click-Feedback" href="#">
+                                Feedback
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="lnk_update_0_1_9" href="/update-0-1-9/" target="_blank">
+                                0.1.9 (new)
+                            </a>
+                            <a class="lnk_update_0_1_8" href="/update-0-1-8/" target="_blank">
+                                0.1.8
+                            </a>
+                            <a class="lnk_update_0_1_7" href="/update-0-1-7/" target="_blank">
+                                0.1.7
+                            </a>
+                            <a class="lnk_update_0_1_6" href="/update-0-1-6/" target="_blank">
+                                0.1.6
+                            </a>
+                            <a class="lnk_update_0_1_5" href="/update-0-1-5/" target="_blank">
+                                0.1.5
+                            </a>
+                        </li>
+                        <li>
+                            <a class="lnk_faq" href="/faq/" target="_blank">
+                                FAQ
+                            </a>
+                            <a class="click-Donate" href="#">
+                                Donate
+                            </a>
+                            <a class="lnk_eula" href="/eula/" target="_blank">
+                                EULA
+                            </a>
+                            <a class="lnk_privacy" href="/privacy/" target="_blank">
+                                Privacy
+                            </a>
+                            <a class="uninstallSelf" href="#">
+                                Uninstall
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- made with love by Happy GrassBlock :3 -->
+    <div class="bgFooter">
+        <div class="bg-f-r">
+            <div class="bg-f-c">
+                <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Shuffle all images of current newtab">
+                    <input type="checkbox" id="shuffle_background" />
+                    <span class="checkmark"></span>Shuffle All Images
+                </label>               
+            </div>
+            <div class="bg-f-c">
+                <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Shuffle images you mark favorites by clicking &#9825;" >
+                    <input type="checkbox" id="shuffle_favorites" />
+                    <span class="checkmark"></span>Shuffle Favorite Images
+                </label>
+            </div>
+            <div class="bg-f-c">
+                <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Random all images of newtabs you installed and set enabled">
+                    <input type="checkbox" id="random_all_newtab" />
+                    <span class="checkmark"></span>Random All NewTabs
+                </label>
+            </div>
+        </div>
+
+        <div class="bg-f-r">
+            <div class="bg-f-c">
+                <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Mark all images as favorites and then you can quickly dislike a few">
+                    <input type="checkbox" id="favor_all_images" />
+                    <span class="checkmark"></span>Favor All Images
+                </label>
+            </div>
+            <div class="bg-f-c">
+                <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="New images are added in minor updates. Automatically mark them as favorites.">
+                    <input type="checkbox" id="favor_new_images" />
+                    <span class="checkmark"></span>Auto Favor New Images
+                </label>
+            </div>
+            <div class="bg-f-c">
+            </div>
+        </div>
+
+        <div id="change_city_box" style="display: none;">
+            <!-- <h4 class="f-heading">Change weather location</h4> -->
+            <input id="city_name" disabled>
+            <input type="submit" id="change_city" value="Change City" data-toggle="tooltip" data-placement="top" title="Change location for accurate weather information">
+            <div class="option_bottom" id="checkbox_disable_weather" data-toggle="tooltip" data-placement="top" title="Display / Hide weather indicator">
+                <label class="checkbox tiny">
+                    <input type="checkbox" id="disable_weather" />
+                    <span class="checkmark"></span>Disable Weather
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="undo-box undo-box-hide">
+        <div class="_row">
+            <span id="msg"></span>
+            <span class="undo-btn"  id="undobtn" >Undo</span>
+            <span class="close" id="close-undo-box-btn"></span>
+        </div>
+    </div>
+<!-- made with love by Happy GrassBlock :3 -->
+    <footer>
+        <div class="to-do">
+            <a id="lnk_todo">Todo</a>
+            <div class="todo-panel">
+                <div class="blur">
+                    <div class="todo-controller">
+                        <i id="hide_todoPanel">
+                        </i>
+                    </div>
+                    <div class="todo_list">
+                        <ul>
+                        </ul>
+                    </div>
+                    <div class="newTodo_box">
+                        <input type="text" class="newToDo" placeholder="New Todo" autofocus id="newToDo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quotes">
+              <div id="quote" class="quote"></div>
+        </div>
+        <div class="bg-name">
+            <div id="bg_name">
+                
+            </div>
+        </div>
+<!--        <div class="support">
+            <a id="lnk_support">Support</a>
+            <div class="nav_menu" id="support_menu">
+                <div><a class="lnk_faq" href="/faq/" target="_blank">FAQ / How-to</a></div>
+                <hr>
+                <div><a class="click-Import" href="#">Import</a></div>
+                <hr>
+                <div><a class="click-Export" href="#">Export</a></div>
+                <hr>
+                <div><a class="click-Feedback" href="#">Feedback</a></div>
+                <hr>
+                <div><a class="click-Donate" href="#">Donate</a></div>
+                <hr>
+                <div><a class="lnk_eula" href="/eula/" target="_blank">EULA</a></div>
+                <div><a class="lnk_privacy" href="/privacy/" target="_blank">Privacy Policy</a></div>
+                <hr>
+                <div><a class="uninstallSelf">Uninstall</a></div>
+            </div>
+        </div>
+    </footer>
+</div>-->
+
+<div class="countDown">
+    <ul id="countdown" style="display: none;">
+      <div class="title" id="countdownTitle">
+
+      </div>
+      <li id="days">
+        <div class="number">00</div>
+        <div class="label">Days</div>
+      </li>
+      <li class="colon">
+          :
+      </li>
+      <li id="hours">
+        <div class="number">00</div>
+        <div class="label">Hours</div>
+      </li>
+      <li class="colon">
+          :
+      </li>
+      <li id="minutes">
+        <div class="number">00</div>
+        <div class="label">Minutes</div>
+      </li>
+      <li class="colon">
+          :
+      </li>
+      <li id="seconds">
+        <div class="number">00</div>
+        <div class="label">Seconds</div>
+      </li>
+    </ul>
+</div>
+
+<!-- libraries -->
+<script type="text/javascript" src="/start/external/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/start/external/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/start/external/sweetalert.min.js"></script>
+<script type="text/javascript" src="/start/external/tooltip.js"></script>
+<script type="text/javascript" src="/start/external/jquery.pause.js"></script>
+
+<!-- newtab features -->
+<script data-source="internal" type="text/javascript" src="/start/search/newtab-base.js"></script>
+<script data-source="internal" type="text/javascript" src="/start/search/AutoSuggest.js"></script>
+<script data-source="internal" type="text/javascript" src="/start/search/search-form.js"></script>
+<script data-source="internal" type="text/javascript" src="/start/search/todo_script.js"></script>
+<script data-source="internal" type="text/javascript" src="/start/search/countdown.js"></script>
+<script data-source="internal" type="text/javascript" src="/start/search/effect.js"></script>
+<script data-source="internal" type="text/javascript" src="/start/search/setTime.js"></script>
+<script data-source="internal" type="text/javascript" src="/start/search/relativeAppsFeature.js"></script>
+<script data-source="internal" type="text/javascript" src="/start/search/stickynote.js"></script>
+
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
+
