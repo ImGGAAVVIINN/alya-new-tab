@@ -1,2 +1,3 @@
-allow quick access to be navigeted using keyboard
 make user able to hide quick access using options
+try to move the search box to the middle of the page and less transporent
+blur and extend some images
