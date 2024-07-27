@@ -1,3 +1,2 @@
-Fix most visited
-Remove dropdown
-Fix most visited sites
+allow quick access to be navigeted using keyboard
+make user able to hide quick access using options

@@ -135,6 +135,12 @@
         .site-entry:hover .entry-controls {
             display: flex;
         }
+
+        /* Add this to your CSS */
+        .site-entry:focus {
+            background-color: rgba(255, 255, 255, 0.2); /* Adjust the color as needed */
+            outline: none; /* Remove the default outline */
+        }
     
         /* Style for the 'move-up' button */
         .entry-controls .move-up {
@@ -247,7 +253,7 @@
             </div>
         </div>
 
-        <div class="dropdown">
+        <div class="dropdown" tabindex="0">
             <button class="dropbtn">Bookmarks</button>
             <div class="dropdown-content" id="dropdownContent">
                 <div class="input-wrapper" style="height: 40px;">
@@ -256,10 +262,9 @@
                 <div id="siteList" style="margin-bottom: 4px; margin-top: 4px; padding: 0 10px;">
                     <!-- Entries will be added here -->
                 </div>
-                
                 <!-- Entry Template -->
                 <template id="siteEntryTemplate">
-                    <li class="site-entry">
+                    <li class="site-entry" tabindex="0">
                         <img src="" alt="Site Icon" style="width: 17px ;height: 17px;">
                         <span></span>
                         <div class="entry-controls">

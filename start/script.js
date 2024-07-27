@@ -1,4 +1,3 @@
-// Event listener for Enter key in URL input
 document.getElementById('urlInput').addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
       let url = e.target.value.trim();
@@ -10,16 +9,72 @@ document.getElementById('urlInput').addEventListener('keypress', function(e) {
   }
 });
 
-// Function to format and validate URL input
-function formatUrlInput(url) {
-  // Add https:// if not present
-  if (!/^https?:\/\//i.test(url)) {
-      url = 'https://' + url;
-  }
-  return url;
-}
+const dropdown = document.querySelector('.dropdown');
+const dropdownContent = document.getElementById('dropdownContent');
 
-// Function to add a site entry
+// Expand the dropdown when it gains focus
+dropdown.addEventListener('focus', function() {
+  dropdownContent.style.maxHeight = '300px';
+  dropdownContent.style.opacity = '1';
+});
+
+// Collapse the dropdown when it loses focus, unless it loses focus to one of its children
+dropdown.addEventListener('blur', function() {
+  setTimeout(() => {
+      if (!dropdown.contains(document.activeElement)) {
+          dropdownContent.style.maxHeight = '0';
+          dropdownContent.style.opacity = '0';
+      }
+  }, 100);
+});
+
+dropdown.addEventListener('keydown', function(e) {
+  const siteEntries = dropdownContent.querySelectorAll('.site-entry');
+  let currentIndex = -1;
+
+  siteEntries.forEach((entry, index) => {
+      if (entry === document.activeElement) {
+          currentIndex = index;
+      }
+  });
+
+  switch (e.key) {
+      case 'ArrowDown':
+          e.preventDefault(); // Prevent default behavior of arrow keys
+          if (currentIndex < siteEntries.length - 1) {
+              siteEntries[currentIndex + 1].focus();
+          } else if (currentIndex === -1 && siteEntries.length > 0) {
+              siteEntries[0].focus();
+          }
+          break;
+      case 'ArrowUp':
+          e.preventDefault(); // Prevent default behavior of arrow keys
+          if (currentIndex > 0) {
+              siteEntries[currentIndex - 1].focus();
+          }
+          break;
+      case 'Enter':
+          e.preventDefault(); // Prevent default behavior of Enter key
+          if (currentIndex !== -1) {
+              siteEntries[currentIndex].click();
+          }
+          break;
+      case 'Tab':
+          // Allow tabbing to move out of the dropdown and collapse it
+          dropdownContent.style.maxHeight = '0';
+          dropdownContent.style.opacity = '0';
+          
+          // Allow focus transition to the next element
+          setTimeout(() => {
+              // Move focus to the next element after collapsing the dropdown
+              document.activeElement.blur();
+          }, 100);
+          break;
+      default:
+          break;
+  }
+});
+
 async function addSiteEntry(url) {
   const faviconUrl = `https://s2.googleusercontent.com/s2/favicons?domain_url=${url}`;
   const formattedTitle = formatUrl(url);
@@ -35,7 +90,6 @@ async function addSiteEntry(url) {
   }
 }
 
-// Function to save a site entry to local storage
 function saveSiteEntry(url, faviconUrl, title) {
   const entries = getEntries();
   entries.push({ url, faviconUrl, title });
@@ -43,33 +97,37 @@ function saveSiteEntry(url, faviconUrl, title) {
   displaySiteEntries(entries);
 }
 
-// Function to display all site entries
 function displaySiteEntries(entries) {
   const siteList = document.getElementById('siteList');
   siteList.innerHTML = '';
   entries.forEach((entry, index) => {
       const entryElement = document.getElementById('siteEntryTemplate').content.cloneNode(true);
-      entryElement.querySelector('img').src = entry.faviconUrl;
-      entryElement.querySelector('span').textContent = entry.title;
+      const siteEntry = entryElement.querySelector('.site-entry');
+      siteEntry.tabIndex = -1; // Make the site entry not focusable via tab
+      siteEntry.querySelector('img').src = entry.faviconUrl;
+      siteEntry.querySelector('span').textContent = entry.title;
 
-      // Add event listeners to buttons
-      entryElement.querySelector('.move-up').addEventListener('click', (e) => {
-          e.stopPropagation(); // Prevent the event from bubbling up
-          moveEntry(index, -1);
+      siteEntry.addEventListener('focus', () => {
+          siteEntry.classList.add('focused');
       });
 
-      entryElement.querySelector('.move-down').addEventListener('click', (e) => {
-          e.stopPropagation(); // Prevent the event from bubbling up
-          moveEntry(index, 1);
+      siteEntry.addEventListener('blur', () => {
+          siteEntry.classList.remove('focused');
       });
 
-      entryElement.querySelector('.remove').addEventListener('click', (e) => {
-          e.stopPropagation(); // Prevent the event from bubbling up
+      siteEntry.querySelector('.move-up').addEventListener('click', (e) => {
+          e.stopPropagation();
+          moveEntryUp(index);
+      });
+      siteEntry.querySelector('.move-down').addEventListener('click', (e) => {
+          e.stopPropagation();
+          moveEntryDown(index);
+      });
+      siteEntry.querySelector('.remove').addEventListener('click', (e) => {
+          e.stopPropagation();
           removeEntry(index);
       });
-
-      // Make the site entry clickable
-      entryElement.querySelector('.site-entry').addEventListener('click', () => {
+      siteEntry.addEventListener('click', () => {
           window.location.href = entry.url;
       });
 
@@ -77,18 +135,38 @@ function displaySiteEntries(entries) {
   });
 }
 
-// Function to move an entry up or down
-function moveEntry(index, direction) {
+function formatUrl(url) {
+  let formattedUrl = url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+  formattedUrl = formattedUrl.charAt(0).toUpperCase() + formattedUrl.slice(1);
+  return formattedUrl;
+}
+
+function getEntries() {
+  return JSON.parse(localStorage.getItem('siteEntries')) || [];
+}
+
+function moveEntryUp(index) {
   const entries = getEntries();
-  const newIndex = index + direction;
-  if (newIndex >= 0 && newIndex < entries.length) {
-      [entries[index], entries[newIndex]] = [entries[newIndex], entries[index]];
+  if (index > 0) {
+      const temp = entries[index - 1];
+      entries[index - 1] = entries[index];
+      entries[index] = temp;
       localStorage.setItem('siteEntries', JSON.stringify(entries));
       displaySiteEntries(entries);
   }
 }
 
-// Function to remove an entry
+function moveEntryDown(index) {
+  const entries = getEntries();
+  if (index < entries.length - 1) {
+      const temp = entries[index + 1];
+      entries[index + 1] = entries[index];
+      entries[index] = temp;
+      localStorage.setItem('siteEntries', JSON.stringify(entries));
+      displaySiteEntries(entries);
+  }
+}
+
 function removeEntry(index) {
   const entries = getEntries();
   entries.splice(index, 1);
@@ -96,25 +174,14 @@ function removeEntry(index) {
   displaySiteEntries(entries);
 }
 
-// Function to format URL for display
-function formatUrl(url) {
-  let formattedUrl = url.replace(/^https?:\/\/(?:www\.)?/, '');
-  formattedUrl = formattedUrl.replace(/\.(com|net|org)$/, '');
-  formattedUrl = formattedUrl.charAt(0).toUpperCase() + formattedUrl.slice(1);
-  return formattedUrl;
+function formatUrlInput(url) {
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      return 'http://' + url;
+  }
+  return url;
 }
 
-// Function to get entries from local storage
-function getEntries() {
-  const entries = localStorage.getItem('siteEntries');
-  return entries ? JSON.parse(entries) : [];
-}
-
-// Load entries on page load
-function loadEntries() {
+document.addEventListener('DOMContentLoaded', function() {
   const entries = getEntries();
   displaySiteEntries(entries);
-}
-
-// Initial load of entries
-window.addEventListener('load', loadEntries);
+});
