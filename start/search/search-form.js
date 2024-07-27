@@ -127,7 +127,7 @@
                 topSites: true
             }, function(e) {
                 var t = 0;
-                $("#topsites_menu").html('<p id="cantFixLol">  ‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎This is where your most visited site go! :D</p>');
+                $("#topsites_menu").html('<p id="cantFixLol">  ‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎Your most visited sites!</p>');
                 for (var o = 0; o < e.length; o++) {
                     if (u.indexOf(e[o].url) >= 0) {
                         continue
