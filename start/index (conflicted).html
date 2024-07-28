@@ -119,29 +119,42 @@
             position: relative;
         }
 
+        .site-entry {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 5px; /* Add padding for better spacing */
+        }
+
         .site-title-wrapper {
     flex-grow: 1;
     overflow: hidden;
     display: flex;
     align-items: center;
+    margin-left: 10px; /* Add margin to separate text from icon */
 }
 
 .site-title {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100%;
+    max-width: 100%; /* Let it use all available space */
+    transition: max-width 0.5s ease;
     vertical-align: middle;
     position: relative;
-    display: block;
+    display: block; /* Make it a block to ensure it fits inside the wrapper */
 }
 
-@keyframes scrollText {
+        .site-title-wrapper:hover .site-title {
+            animation: scrollText 5s linear infinite;
+        }
+
+        @keyframes scrollText {
     0% {
         transform: translateX(0);
     }
     50% {
-        transform: translateX(calc(-100% + 200px));
+        transform: translateX(calc(-100% + 200px)); /* Adjust for scrolling length */
     }
     100% {
         transform: translateX(0);
@@ -158,8 +171,6 @@
     position: relative;
     z-index: 1;
 }
-
-
 
 
         .site-entry {
@@ -195,13 +206,13 @@
         }
 
         .site-entry {
-            display: flex;
-            align-items: center;
-            position: relative;
-            height: 38px; /* Adjust to ensure sufficient height for entries */
-            padding: 5px; /* Add padding for spacing */
-            box-sizing: border-box; /* Ensure padding is included in height calculation */
-        }
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 40px; /* Adjust to ensure sufficient height for entries */
+    padding: 5px; /* Add padding for spacing */
+    box-sizing: border-box; /* Ensure padding is included in height calculation */
+}
 
         .site-entry img {
             width: 20px;
@@ -319,7 +330,6 @@
         /* Show the dropdown content */
         .dropdown:hover .dropdown-content {
             max-height: 800px; /* Adjust based on content size */
-            max-width: 100;
             opacity: 1;
         }
 
@@ -374,24 +384,22 @@
                 </div>
                 <!-- Entry Template -->
                 <template id="siteEntryTemplate">
-                    <li class="site-entry" tabindex="-1">
-                        <img src="" alt="Site Icon" style="width: 17px ;height: 17px;">
+                    <li class="site-entry" tabindex="0">
+                        <img src="" alt="Site Icon" style="width: 17px ;height: 17px; margin-top: 13px;">
                         <div class="site-title-wrapper">
                             <span class="site-title"></span>
                         </div>
                         <input type="text" class="rename-input" style="display: none;">
-                        <div class="entry-controls">
+                        <div class="entry-controls" style="margin-top: 10px;">
                             <button class="move-up"></button>
                             <button class="move-down"></button>
                             <button class="remove"></button>
                             <button class="rename"></button>
                         </div>
                     </li>
-                </template>
-                
+                </template>                
             </div>
-        </div>
-             
+        </div>       
         
 <!-- made with love by Happy GrassBlock :3 -->
        
@@ -932,4 +940,6 @@
 <script src="script.js"></script>
 
 
-</b
+</body>
+</html>
+
