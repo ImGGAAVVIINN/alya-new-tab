@@ -241,3 +241,36 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   }, true);
 });
+
+//search engine selector
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownItems = document.querySelectorAll('#siteList div');
+
+  // Load the saved script on page load
+  const savedScript = localStorage.getItem('selectedScript');
+  if (savedScript) {
+      loadScript(savedScript);
+  }
+
+  dropdownItems.forEach(item => {
+      item.addEventListener('click', function() {
+          const file = this.getAttribute('data-file');
+          localStorage.setItem('selectedScript', file); // Save the selected script
+          loadScript(file);
+      });
+  });
+
+  function loadScript(src) {
+      // Remove existing script if it exists
+      const existingScript = document.getElementById('dynamic-script');
+      if (existingScript) {
+          existingScript.remove();
+      }
+
+      // Create a new script element
+      const script = document.createElement('script');
+      script.src = src;
+      script.id = 'dynamic-script';
+      document.body.appendChild(script);
+  }
+});
