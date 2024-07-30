@@ -1413,7 +1413,7 @@ h1.hour {
 #background_selector_widget.triangle-top::before {
   content: '';
   position: absolute;
-  left: 50%;
+  left: 28%;
   margin-left: -10px;
   top: -10px;
   width: 0;
