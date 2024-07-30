@@ -1,3 +1,4 @@
 make user able to hide quick access using options
 try to move the search box to the middle of the page and less transporent
-fix app and most visited dropdown broken
+make the above into a separate branch
+Fix apps drop-down icon in Firefox port
