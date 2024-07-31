@@ -578,6 +578,29 @@
                     });
                     utils.storageSync()
                 });
+
+            //# Custom dropdown toggle
+                if (localStorage.getItem("enable_quick_access") == "no") {
+                    $(".quick_access").fadeOut()
+                } else {
+                    $(".quick_access").fadeIn()
+                }
+                $("#enable_quick_access").prop("checked", localStorage.getItem("enable_quick_access") === "yes");
+                $("#enable_quick_access").off("change");
+                $("#enable_quick_access").on("change", function() {
+                    if (!$("#enable_quick_access").is(":checked")) {
+                        $(".quick_access").fadeOut()
+                    } else {
+                        $(".quick_access").fadeIn()
+                    }
+                    localStorage.setItem("enable_quick_access", $("#enable_quick_access").is(":checked") ? "yes" : "no");
+                    chrome.runtime.sendMessage({
+                        syncOptionsNow: true
+                    });
+                    utils.storageSync()
+                });
+
+
                 $("#enable_shortcuts").prop("checked", localStorage.getItem("enable_shortcuts") === "yes");
                 $("#enable_shortcuts").off("change");
                 $("#enable_shortcuts").on("change", function() {
