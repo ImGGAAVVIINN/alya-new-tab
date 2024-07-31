@@ -274,3 +274,67 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.appendChild(script);
   }
 });
+
+
+//toggle big searchbox
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('metaToggle');
+  const metaTag = document.querySelector('meta[http-equiv="Refresh"]');
+
+  // Restore toggle state from localStorage
+  const toggleState = localStorage.getItem('metaToggleState');
+  if (toggleState === 'true') {
+    toggle.checked = true;
+    if (!metaTag) {
+      addMetaTag();
+    }
+    // Clear page content and set background color
+    clearPageContent();
+  }
+
+  toggle.addEventListener('change', toggleMetaRefresh);
+
+  // Check for removal request from bigSearchBox.html
+  if (localStorage.getItem('removeMetaTag') === 'true') {
+    removeMetaTag();
+    localStorage.removeItem('removeMetaTag');
+  }
+});
+
+function toggleMetaRefresh() {
+  const toggle = document.getElementById('metaToggle');
+
+  if (toggle.checked) {
+    addMetaTag();
+    localStorage.setItem('metaToggleState', 'true');
+    clearPageContent(); // Clear the page content and set background color
+  } else {
+    removeMetaTag();
+    localStorage.setItem('metaToggleState', 'false');
+    restorePageContent(); // Restore the page content if needed
+  }
+}
+
+function clearPageContent() {
+  document.body.innerHTML = ''; // Remove all content
+  document.body.style.backgroundColor = 'white'; // Set background color to white
+}
+
+function restorePageContent() {
+  // You can add logic here to restore content if needed.
+  // This depends on how you want to restore the page state.
+}
+
+function addMetaTag() {
+  const newMetaTag = document.createElement('meta');
+  newMetaTag.setAttribute('http-equiv', 'Refresh');
+  newMetaTag.setAttribute('content', "0; url='bigSearchBox.html'");
+  document.head.appendChild(newMetaTag);
+}
+
+function removeMetaTag() {
+  const metaTag = document.querySelector('meta[http-equiv="Refresh"]');
+  if (metaTag) {
+    metaTag.remove();
+  }
+}
