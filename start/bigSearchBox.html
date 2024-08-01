@@ -410,6 +410,67 @@
         #search-input:focus {
             background: transparent;
         }
+
+
+
+        /* Style for the toggle switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .slider.round {
+            border-radius: 34px;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        /* Style for the input box */
+        #autohide_timeout {
+            width: 80px;
+            padding: 5px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
         
     </style>
     
@@ -565,14 +626,18 @@
                           </label>
                         </li>
                         <li>
-                            <label data-toggle="tooltip" data-placement="bottom" title="Auto hide all elements in newtab page after 10 seconds">
-                                <span>Auto Hide (after 10 seconds)</span>
+                            <label data-toggle="tooltip" data-placement="bottom" title="Auto hide all elements in newtab" style="padding-top: 3px; padding-bottom: 3px;">
+                                <span><label for="autohide_timeout" style="width: 400px;">Auto Hide (after 
+                                    <input type="number" id="autohide_timeout" value="10000"> ms)
+                                </label></span>
+
                                 <label for="enable_autohide" class="switch normal" title="on/off">
                                     <input type="checkbox" id="enable_autohide" />
                                     <span class="slider round"></span>
                                     <span class="on">ON</span>
                                     <span class="off">OFF</span>
                                 </label>
+                            
                             </label>
                         </li>
                         <li>
