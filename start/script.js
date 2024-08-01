@@ -338,3 +338,122 @@ function removeMetaTag() {
     metaTag.remove();
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.loadAutoHideModule = function(e) {
+  if (e.autoHideThread)
+      clearTimeout(e.autoHideThread);
+  e.autoHideThread = null;
+
+  function t() {
+      clearTimeout(e.autoHideThread);
+      var timeout = parseInt(document.getElementById('autohide_timeout').value);
+      e.autoHideThread = setTimeout(n, timeout);
+  }
+
+  function n() {
+      if ($("#background_selector_widget").css("display") == "none") {
+          $("#wrapper").fadeOut(1000);
+      }
+  }
+
+  function a() {
+      $("#wrapper").fadeIn(1000);
+      t();
+  }
+
+  function s() {
+      e.listAllThreads.threadAutoHide = {
+          pause: function() {
+              clearTimeout(e.autoHideThread);
+              n();
+          },
+          resume: function() {
+              a();
+          }
+      };
+      t();
+      $("body").off("mousemove", a);
+      $("input[type=text]").off("focus", i);
+      $("input[type=search]").off("keypress", i);
+      $("input[type=text], input[type=search]").off("focusout", s);
+      $("body").on("mousemove", a);
+      $("input[type=text]").on("focus", i);
+      $("input[type=search]").on("keypress", i);
+      $("input[type=text], input[type=search]").on("focusout", s);
+  }
+
+  function i() {
+      clearTimeout(e.autoHideThread);
+      $("body").off("mousemove", a);
+      $("input[type=text]").off("focus", i);
+      $("input[type=search]").off("keypress", i);
+      $("input[type=text], input[type=search]").off("focusout", s);
+  }
+
+  if (localStorage.getItem("enable_autohide") == "yes") {
+      s();
+  } else {
+      i();
+  }
+
+  $("#enable_autohide").prop("checked", localStorage.getItem("enable_autohide") === "yes");
+  $("#enable_autohide").off("change");
+  $("#enable_autohide").on("change", function() {
+      localStorage.setItem("enable_autohide", $("#enable_autohide").is(":checked") ? "yes" : "no");
+      if ($("#enable_autohide").is(":checked")) {
+          s();
+      } else {
+          i();
+      }
+      chrome.runtime.sendMessage({
+          syncOptionsNow: true
+      });
+  });
+
+  $("#autohide_timeout").on("change", function() {
+      if (localStorage.getItem("enable_autohide") == "yes") {
+          s();
+      }
+  });
+};
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Retrieve and set the auto-hide timeout value from localStorage
+  var savedTimeout = localStorage.getItem('autohide_timeout');
+  if (savedTimeout !== null) {
+      document.getElementById('autohide_timeout').value = savedTimeout;
+  }
+
+  // Retrieve and set the auto-hide enable state from localStorage
+  var enableAutoHide = localStorage.getItem('enable_autohide');
+  if (enableAutoHide === "yes") {
+      document.getElementById('enable_autohide').checked = true;
+  }
+
+  // Event listener to save the timeout value to localStorage when it changes
+  document.getElementById('autohide_timeout').addEventListener('change', function() {
+      localStorage.setItem('autohide_timeout', document.getElementById('autohide_timeout').value);
+  });
+
+  // Load the auto-hide module
+  if (typeof window.loadAutoHideModule === 'function') {
+      window.loadAutoHideModule(window);
+  }
+});

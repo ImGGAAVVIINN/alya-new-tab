@@ -1,3 +1,2 @@
-try to move the search box to the middle of the page and less transporent
-make the above into a separate branch
+Make autohide elemt time custmisable
 Fix apps drop-down icon in Firefox port
