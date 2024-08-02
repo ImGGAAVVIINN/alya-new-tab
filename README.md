@@ -19,7 +19,7 @@ New tab page with images from Alya Sometimes Hides Her Feelings in Russian
 ## 1. manual nstall guide for chromium based browsers (Chrome, Brave, Opera, Vivaldi)
 <details>
   <summary>Click me</summary>
-
+  # Add instruction here!!!
   ### Heading
   1. Foo
   2. Bar
@@ -51,7 +51,7 @@ Screenshots
 License
 -------
 
-This project is licensed under the **MIT License**, see [LICENSE_MIT.txt](LICENSE_MIT.txt) for details.
+This project is licensed under the **MIT License**, see [LICENSE](LICENSE) for details.
 
 
 Changelog
