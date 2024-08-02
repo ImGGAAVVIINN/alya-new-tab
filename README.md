@@ -8,7 +8,6 @@ New tab page with themed with _Alya Sometimes Hides Her Feelings in Russian_
 ### Features
 
 - Quick access dropdown to add your most used sites, which allow you to rename and reorder them
-  ## add edit entries gif here
 - Apps Dropdown to access Google services and popular websites
 - Built in todo lists and postit notes
 - Automaticly Weather forecast based on your location
