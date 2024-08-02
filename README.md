@@ -36,21 +36,16 @@ New tab page with themed with _Alya Sometimes Hides Her Feelings in Russian_
 </details>
 
 <details>
-  <summary><h3>manual install guide for firefox based browsers (Firefox, Librewolf, Waterfox, Floorp)</h3></summary>
-  ## Add instruction here!!!    
+  <summary><h3>manual install guide for firefox based browsers (Firefox, Librewolf, Waterfox, Floorp)</h3></summary>  
   
-  ### Heading
+  ### Based on Firefox ESR, Unstable, and Devlopment
   1. Foo
   2. Bar
      * Baz
      * Qux
 
-  ### Some Javascript
-  ```js
-  function logSomething(something) {
-    console.log('Something', something);
-  }
-  ```
+  ### Firefox Stable
+
 </details>
 
 Screenshots
