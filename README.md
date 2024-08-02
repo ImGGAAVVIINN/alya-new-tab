@@ -1,9 +1,9 @@
 Roshidere New Tab Page
 ===================
 
-New tab page with images from Alya Sometimes Hides Her Feelings in Russian 
+New tab page with themed with Alya Sometimes Hides Her Feelings in Russian 
 
-![](media/shot.1.png)
+![demoMain](https://github.com/user-attachments/assets/c0512479-a22a-409a-ac27-35e2a75e975d)
 
 ### Features
 
@@ -16,10 +16,11 @@ New tab page with images from Alya Sometimes Hides Her Feelings in Russian
 - Different search engines like Google, YouTube, Yahoo, Brave and more
 - 2 different search box styles to chose from
 
-## 1. manual nstall guide for chromium based browsers (Chrome, Brave, Opera, Vivaldi)
+
 <details>
-  <summary>Click me</summary>
-  # Add instruction here!!!
+  <summary><h3>manual install guide for chromium based browsers (Chrome, Brave, Opera, Vivaldi)</h3></summary>
+  ## Add instruction here!!!    
+  
   ### Heading
   1. Foo
   2. Bar
@@ -34,11 +35,23 @@ New tab page with images from Alya Sometimes Hides Her Feelings in Russian
   ```
 </details>
 
+<details>
+  <summary><h3>manual install guide for firefox based browsers (Firefox, Librewolf, Waterfox, Floorp)</h3></summary>
+  ## Add instruction here!!!    
+  
+  ### Heading
+  1. Foo
+  2. Bar
+     * Baz
+     * Qux
 
-[Download for Firefox](https://addons.mozilla.org/firefox/addon/humble-new-tab/)
-
-This extension replaces the default new tab page. Drag and drop folders to create new columns or reorder them. The font, colors, spacing, and more can be customized from the options menu.
-
+  ### Some Javascript
+  ```js
+  function logSomething(something) {
+    console.log('Something', something);
+  }
+  ```
+</details>
 
 Screenshots
 -----------
