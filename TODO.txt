@@ -1,2 +1,1 @@
-Make autohide elemt time custmisable
 Fix apps drop-down icon in Firefox port
