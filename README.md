@@ -1,18 +1,18 @@
 Roshidere New Tab Page
 ===================
 
-New tab page with themed with Alya Sometimes Hides Her Feelings in Russian 
+New tab page with themed with _Alya Sometimes Hides Her Feelings in Russian_
 
-![demoMain](https://github.com/user-attachments/assets/c0512479-a22a-409a-ac27-35e2a75e975d)
+![demoMain](https://github.com/user-attachments/assets/e988fa4e-0183-4012-bc40-41bc783902f0)
 
 ### Features
 
 - Quick access dropdown to add your most used sites, which allow you to rename and reorder them
-- Quick Dropdown to access Google services and popular websites
+- Apps Dropdown to access Google services and popular websites
 - Built in todo lists and postit notes
 - Automaticly Weather forecast based on your location
 - Good looking effects like countdown clock and snow/rain/leaves animation
-- Highly customizable settings for enable each elements individually and autohide delay
+- Highly customizable settings for enable/disable each elements individually and autohide delay
 - Different search engines like Google, YouTube, Yahoo, Brave and more
 - 2 different search box styles to chose from
 
