@@ -21,30 +21,28 @@ New tab page with themed with _Alya Sometimes Hides Her Feelings in Russian_
   
   1. Download the [Latest version](https://github.com/ImGGAAVVIINN/alya-new-tab/releases/latest/download/alya-new-tab_chromium.crx) from the release section               
      _If firectly download .crx file is not working, download the [zipped version](https://github.com/ImGGAAVVIINN/alya-new-tab/releases/latest/download/alya-new-tab_chromium.crx.zip)_   
-  3. If browser ask for confirmation to download, press 'keep'  
+  2. If browser ask for confirmation to download, press 'keep'  
      ![Screenshot_20240803_190129](https://github.com/user-attachments/assets/a6301372-144a-4eab-bf16-042f56679dae)
-  4. go to chrome://extensions and enable 'Developer mode'   
+  3. go to chrome://extensions and enable 'Developer mode'   
      ![image](https://github.com/user-attachments/assets/9229b8b2-b8f6-4f10-be00-32f3927d4d32)
+  4. Drag the .crx file into the extensions page
 
-
-  ### Some Javascript
-  ```js
-  function logSomething(something) {                                 
-    console.log('Something', something);
-  }
-  ```
 </details>
 
 <details>
   <summary><h3>manual installation guide for Firefox based browsers (Firefox, LibreWolf, Waterfox, Floorp)</h3></summary>  
   
   ### Based on Firefox ESR, Unstable, and Development
-  1. Foo
-  2. Bar
-     * Baz
-     * Qux
+  1. Download the [Latest version](https://github.com/ImGGAAVVIINN/alya-new-tab/releases/latest/download/alya_start_page_firefox.xpi) from the release section       
+  2. Go to about:config, type in xpinstall.signatures.required in the searchbox, and click on the toggle button to it is set to false     
+     ![image](https://github.com/user-attachments/assets/36f63cbf-3971-4455-a96e-ff063fa51b4a)
+  3. Click on the gear button --> 'install Add-on From File' and choose the .xpi file your downloaded         
+     ![image](https://github.com/user-attachments/assets/c8b43ff0-0d41-416f-af66-aab1556b2a0e)
+
 
   ### Firefox Stable
+  **To sideload unsigned extension on Firefox, you first need to "Jail-break" it** ¯\\_(ツ)_/¯   
+  - If you are on Linux follow [This guide](https://gist.github.com/TheBrokenRail/c43bf0f07f4860adac2631a1bd9e4136)
 
 </details>
 
