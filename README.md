@@ -53,16 +53,29 @@ New tab page with themed with _Alya Sometimes Hides Her Feelings in Russian_
 
 Screenshots
 -----------
-![bigSearchbar](https://github.com/user-attachments/assets/823f9f85-9d51-4838-bc03-cbc0f08f6e62)    
-^ Big search bar     
-![apps](https://github.com/user-attachments/assets/e38832b5-9171-417f-a8bd-c33d814d23e0)![most-visited](https://github.com/user-attachments/assets/c396207d-1f5a-4cb7-b94b-b04e59b8fb8c)      
-^ Most Visited and Apps dropdown    
-![demo1](https://github.com/user-attachments/assets/aecfb327-6364-49e9-b2fb-e040388a5a87)    
-^ Demo of how The Quick Access dropdown work   
-![leaves](https://github.com/user-attachments/assets/c774918c-95ab-4be2-8004-ebd05b6ff8e8)
-^ Animation effects, the one this screen shot is using is leaves    
-![demo2](https://github.com/user-attachments/assets/dc59f6b1-4f8e-4921-a2d5-7c9b45a0b720)   
-^ Demo of custom autohide delay
+<img src="https://github.com/user-attachments/assets/823f9f85-9d51-4838-bc03-cbc0f08f6e62" width="750">    
+  
+^ Big search bar       
+
+      
+<img src="https://github.com/user-attachments/assets/e38832b5-9171-417f-a8bd-c33d814d23e0" width="750"><img src="https://github.com/user-attachments/assets/e38832b5-9171-417f-a8bd-c33d814d23e0" width="750">    
+  
+^ Most Visited and Apps dropdown      
+
+![demo1](https://github.com/user-attachments/assets/d02e1bff-a3cc-4e24-be03-24086427ebaa)
+
+  
+^ Demo of how The Quick Access dropdown work     
+
+      
+<img src="https://github.com/user-attachments/assets/c774918c-95ab-4be2-8004-ebd05b6ff8e8" width="750">       
+  
+^ Animation effects, the one this screen shot is using is leaves      
+      
+![demo2](https://github.com/user-attachments/assets/bd1412c5-deb5-4048-8efb-8340506032f3)
+
+^ Demo of custom autohide delay   
+   
 
 ## Explanation of permissions:
 
@@ -119,3 +132,5 @@ Changelog
 ### Version 1.0 - Aug 2, 2024
 
 - Initial release
+
+
