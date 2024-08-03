@@ -10,7 +10,7 @@ New tab page with themed with _Alya Sometimes Hides Her Feelings in Russian_
 - Quick access dropdown to add your most used sites, which allow you to rename and reorder them
 - Apps Dropdown to access Google services and popular websites
 - Built in to-do lists and Post-it notes
-- Automatically Weather forecast based on your location
+- Weather widget updating automatically based on your location
 - Good-looking effects like countdown clock and snow/rain/leaves animation
 - Highly customizable settings to enable/disable each elements individually and auto-hide delay
 - Different search engines like Google, YouTube, Yahoo, Brave and more
