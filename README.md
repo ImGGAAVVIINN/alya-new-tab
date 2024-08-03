@@ -1,4 +1,5 @@
 Roshidere New Tab Page
+=======================
 
 New tab page with themed with _Alya Sometimes Hides Her Feelings in Russian_
 
@@ -41,8 +42,12 @@ New tab page with themed with _Alya Sometimes Hides Her Feelings in Russian_
 
 
   ### Firefox Stable
-  **To sideload unsigned extension on Firefox, you first need to "Jail-break" it** ¯\\_(ツ)_/¯   
-  - If you are on Linux follow [This guide](https://gist.github.com/TheBrokenRail/c43bf0f07f4860adac2631a1bd9e4136)
+  1. **To sideload unsigned extension on Firefox Stable, you first need to "Jail-break" it** ¯\\_(ツ)_/¯   
+  - If you are on Linux follow [This guide](https://gist.github.com/TheBrokenRail/c43bf0f07f4860adac2631a1bd9e4136)       
+  - If you are on Windows run the .bat file in [This repo](https://github.com/ImGGAAVVIINN/Jailbreak-Firefox-Windows), or apply the changes your self by looking at the bat file if you know what you are doing   
+  2. Download the [Latest version](https://github.com/ImGGAAVVIINN/alya-new-tab/releases/latest/download/alya_start_page_firefox.xpi) from the release section  
+  3. Click on the gear button --> 'install Add-on From File' and choose the .xpi file your downloaded         
+     ![image](https://github.com/user-attachments/assets/c8b43ff0-0d41-416f-af66-aab1556b2a0e)  
 
 </details>
 
