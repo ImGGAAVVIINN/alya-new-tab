@@ -19,15 +19,17 @@ New tab page with themed with _Alya Sometimes Hides Her Feelings in Russian_
 <details>
   <summary><h3>manual installation guide for chromium based browsers (Chrome, Brave, Opera, Vivaldi)</h3></summary>
   
-  1. Download the [Latest version](https://github.com/ImGGAAVVIINN/alya-new-tab/releases/latest/download/alya-new-tab_chromium.crx) from the release section     
-     <a href="https://github.com/ImGGAAVVIINN/alya-new-tab/releases/latest/download/alya-new-tab_chromium.crx" download>Download CRX file</a>
+  1. Download the [Latest version](https://github.com/ImGGAAVVIINN/alya-new-tab/releases/latest/download/alya-new-tab_chromium.crx) from the release section               
+     _If firectly download .crx file is not working, download the [zipped version](https://github.com/ImGGAAVVIINN/alya-new-tab/releases/latest/download/alya-new-tab_chromium.crx.zip)_   
   3. If browser ask for confirmation to download, press 'keep'  
      ![Screenshot_20240803_190129](https://github.com/user-attachments/assets/a6301372-144a-4eab-bf16-042f56679dae)
-  4. s
+  4. go to chrome://extensions and enable 'Developer mode'   
+     ![image](https://github.com/user-attachments/assets/9229b8b2-b8f6-4f10-be00-32f3927d4d32)
+
 
   ### Some Javascript
   ```js
-  function logSomething(something) {
+  function logSomething(something) {                                 
     console.log('Something', something);
   }
   ```
