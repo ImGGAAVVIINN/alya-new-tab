@@ -12,7 +12,7 @@ New tab page with themed with _Alya Sometimes Hides Her Feelings in Russian_
 - Built in to-do lists and Post-it notes
 - Weather widget updating automatically based on your location
 - Good-looking effects like countdown clock and snow/rain/leaves animation
-- Highly customizable settings to enable/disable each elements individually and auto-hide delay
+- Highly customizable settings to enable/disable each elements individually and configuring auto-hide delay
 - Different search engines like Google, YouTube, Yahoo, Brave and more
 - 2 different search box styles to chose from
 
