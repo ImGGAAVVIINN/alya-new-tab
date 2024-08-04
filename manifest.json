@@ -24,7 +24,7 @@
       "all_frames": false,
       "run_at": "document_end",
       "js": [ "/start/search/content-homepage.js" ],
-      "matches": [ "https://*.freeaddon.com/*" ]
+      "matches": [ "https://*.google.com/*" ]
     }
   ],
   "browser_action": {
@@ -41,7 +41,6 @@
   },
   "web_accessible_resources": [ "start/skin/*" ],
   "permissions": [
-    "https://*.freeaddon.com/*",
     "https://suggestqueries.google.com/*",
     "unlimitedStorage",
     "topSites",

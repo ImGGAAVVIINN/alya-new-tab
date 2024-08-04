@@ -579,7 +579,7 @@
                     utils.storageSync()
                 });
 
-            //# Custom dropdown toggle
+            //Custom dropdown toggle
                 if (localStorage.getItem("enable_quick_access") == "no") {
                     $(".quick_access").fadeOut()
                 } else {
