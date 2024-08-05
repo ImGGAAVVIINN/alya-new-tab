@@ -640,7 +640,7 @@
                         var rules = styleSheets[i].cssRules || styleSheets[i].rules;
                         for (var j = 0; j < rules.length; j++) {
                             var rule = rules[j];
-                            if (rule.selectorText === ".widght" && rule.style.transform === "translateX(-36%)") {
+                            if (rule.selectorText === ".widght" && rule.style.transform === "translateX(-70%)") {
                                 styleSheets[i].deleteRule(j);
                                 return; // Exit once the rule is found and removed
                             }
@@ -653,17 +653,10 @@
                     var style = document.createElement('style');
                     style.type = 'text/css';
                     style.id = 'widght-transform-style';
-                    style.innerHTML = '.widght { transform: translateX(-36%); }';
+                    style.innerHTML = '.widght { transform: translateX(-70%); }';
                     document.getElementsByTagName('head')[0].appendChild(style);
                 }
                 
-                function addTransformCSS() {
-                    var style = document.createElement('style');
-                    style.type = 'text/css';
-                    style.id = 'widght-transform-style';
-                    style.innerHTML = '.widght { transform: translateX(-36%); }';
-                    document.getElementsByTagName('head')[0].appendChild(style);
-                }
                 
                 
 
