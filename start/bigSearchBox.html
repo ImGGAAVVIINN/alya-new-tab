@@ -25,9 +25,7 @@
             transform: translateX(89%);
         }
     
-        .widght {
-            transform: translateX(-36%);
-        }
+        
     
         /* Dropdown Button */
         .dropdown {
@@ -329,7 +327,10 @@
             background-color: transparent;
             color: white;
             font-size: 14px;
-            margin-left: 5px;
+            margin-left: 0px;
+            padding-left: 0px;
+            padding-top: 9px;
+            padding-right: 90px;
         }
 
         #search-input::placeholder {
@@ -472,6 +473,92 @@
             border-radius: 5px;
             margin-left: 5px;
         }
+
+        #background_selector_widget {
+            right: 30px;
+        }
+
+        .triangle-top::before {
+            left: 62.5%; /* Default position */
+        }
+
+        .triangle-top.toggle::before {
+            left: 28%; /* Toggled position */
+        }
+        
+
+        /*fix apps icon for firefox web browser*/
+
+        /*
+        . {
+            background-image:url('');background-size:cover;
+        }
+        */
+
+        .icon_myaccount {
+            background-image:url('skin/icons/google/myaccount.png');background-size:cover;
+        }
+        
+        .icon_gmail {
+            background-image:url('skin/icons/google/gmail.png');background-size:cover;
+        }
+
+        .icon_youtube {
+            background-image:url('skin/icons/google/youtube.png');background-size:cover;
+        }
+
+        .icon_drive {
+            background-image:url('skin/icons/google/drive.png');background-size:cover;
+        }
+
+        .icon_documents {
+            background-image:url('skin/icons/google/docs.png');background-size:cover;
+        }
+
+        .icon_calendar {
+            background-image:url('skin/icons/google/calendar.png');background-size:cover;
+        }
+
+        .icon_photos {
+            background-image:url('skin/icons/google/photos.png');background-size:cover;
+        }
+
+        .icon_googleplus {
+            background-image:url('skin/icons/google/plus.png');background-size:cover;
+        }
+
+        .icon_googlemap {
+            background-image:url('skin/icons/google/maps.png');background-size:cover;
+        }
+
+        .icon_translate {
+            background-image:url('skin/icons/google/translate.png');background-size:cover;
+        }
+
+        .icon_classroom {
+            background-image:url('skin/icons/google/classroom.png');background-size:cover;
+        }
+
+        .icon_facebook {
+            background-image:url('skin/icons/favicons/facebook.png');background-size:cover;
+        }
+
+        .icon_amazon {
+            background-image:url('skin/icons/favicons/amazon.png');background-size:cover;
+        }
+
+        .icon_ebay {
+            background-image:url('skin/icons/favicons/ebay.png');background-size:cover;
+        }
+
+        .icon_wikipedia {
+            background-image:url('skin/icons/favicons/wikipedia.png');background-size:cover;
+        }
+
+        .icon_reddit {
+            background-image:url('skin/icons/favicons/reddit.png');background-size:cover;
+        }
+
         
     </style>
     
@@ -538,51 +625,51 @@
 </nav>
 
 <div class="widght">
-        <div class="toggle" data-toggle="tooltip" data-placement="bottom" title="Click to change your background">
-            <span id="background_selector_menu">Options</span>
-            <!--<a href="#" id="background_selector"><img id="background_selector_img" src="/start/skin/images/brush-white.png"></a>-->
-            <span href="#" id="weather" class="clock" ><img src="/start/skin/images/clock.png"></span>
+    <div class="toggle" data-toggle="tooltip" data-placement="bottom" title="Click to change your background">
+        <span id="background_selector_menu">Options</span>
+        <!--<a href="#" id="background_selector"><img id="background_selector_img" src="/start/skin/images/brush-white.png"></a>-->
+        <span href="#" id="weather" class="clock" ><img src="/start/skin/images/clock.png"></span>
+    </div>
+    <div class="time" data-toggle="tooltip" data-placement="bottom" title="Click to change between 24 and 12 hours">
+        <h1 class="hour">
+            12:00
+        </h1>
+        <div class="ampm">AM</div>
+        <div class="date">
+            <p class="day">Saturday</p>
+            <p class="num">31.12.2016</p>
         </div>
-        <div class="time" data-toggle="tooltip" data-placement="bottom" title="Click to change between 24 and 12 hours">
-            <h1 class="hour">
-                12:00
-            </h1>
-            <div class="ampm">AM</div>
-            <div class="date">
-                <p class="day">Saturday</p>
-                <p class="num">31.12.2016</p>
-            </div>
-        </div>
-        <div class="weather">
-            
-            <h1 data-toggle="tooltip" data-placement="bottom" title="Click to change between °F and °C">
-              <span class="val"></span><em class="deg">&deg;</em><span id="weather_widget_unit" class="units">C</span>
-            </h1>
-            <div id="weather_info_display" class="fright" data-toggle="tooltip" data-placement="bottom" title="Click to change city">
-                <!--<div class="icon"><img src="" alt=""></div>-->
-                <div class="condition"></div>
-                <div class="city"></div>
-            </div>
-        </div>
+    </div>
+    <div class="weather">
         
+        <h1 data-toggle="tooltip" data-placement="bottom" title="Click to change between °F and °C">
+          <span class="val"></span><em class="deg">&deg;</em><span id="weather_widget_unit" class="units">C</span>
+        </h1>
+        <div id="weather_info_display" class="fright" data-toggle="tooltip" data-placement="bottom" title="Click to change city">
+            <!--<div class="icon"><img src="" alt=""></div>-->
+            <div class="condition"></div>
+            <div class="city"></div>
+        </div>
     </div>
     
-    <div id="myWeather" style="width: 100%;">
-        <iframe src='https://cee7d07ac94e45ef85e27e0308ba7192.elf.site' width='100%' height='1000' frameborder='0'></iframe>
-    </div>
+</div>
 
-    <div id="error_box">
-        <table>
-            <tr>
-            <td id="error_weather_messager">
-                <p>Unable to get weather data. Click here to change city for weather.</p>
-            </td>
-            <td data-toggle="tooltip" data-placement="bottom" title="Click to disable Weather Indicator">
-                <img id="delete_button" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAEaUlEQVRoQ+2ZP0wjRxTGPzc265zOoOAGFyEVlNBE/CkMkk0LqSmAlgpEhYQEkXBlENDQAgX1QYuRbArAnV2CmzgFXIkdRTbnKzh9mx208e2fmb0xF538JMvFzs7Ob95737x9G8IPYqEfhANdkP+bJ7se6XqkQzvQqdBKAugFMNK27jKAGoAr3Tw6QWYBzFk/QngZYc6s37kOKB0gXPwegEEuKJVK1efn52ODg4Po7e3FyMi/TimXy6jVaqhWqzg9Pa1fXl7GLIAqgFULKjDTt4Bw4UcApvr7+//JZrPv5ubmzMXLGKHOzs6wvLzcajabYQAFAEsACKZsQUG4zflwOBxZX183VlZWpAHaV0ignZ2d52w2+9JqtT4BmKYDVUmCgCzSE4ZhtG5ubsIidFQf3D6eoTcxMSG8Q88cq8ypCkJPlIaGhprFYtGQDSPZBdE7Y2Njzfv7ewPAqIpnVECYEyXDMKKPj49h3RACljADAwP0TMOCkcoZFZB8JBIZKxaLPbrCyc1TDLPRUTrEFADmjK/JglBiP2xubmJra8t3Uh0DNjY2njOZTA+A32WkWRbkz3g8Hq9UKj85hVShUMDV1RUIqmIHBwdIJpOvZ439XoZYIpH43Gg0HgD86jevDIjpjaOjIywuUrC+tv39fayurprXOU7GlpaWcHx8jL29PVC+nYzXOU7GKzIglMGFp6cnz7OCECcnJ1IwAmJhYcGEcTN6pa+vj5dPADjvonWzDMhTKpUK5XI5UVK4PlgGRhZCPCSdTrOceQFgErmZH8gUT3CvsGqf2AtGFYJzi7C11Isq5mh+IGZ+5PN5TE2RSc6cYIJA8GkUkulpU4E91csPhFq7WSqVHJXFC8sOw3HMBb+ccJrPdqb8AcBV+6VAXl4YouomYHhnEAjxxFDIXOb3AxHhxFWoSHP7lmkDCRJa9pzgwmSluR1CV2gFSnanxJaRZqfg1ZXsyvLrpU5BYGynO6UrsPxyk2rpdDp0cXHx3i/dZSRWFWZmZubvXC5HtfF8h/ZTLVM5ZUoUGQixEbIwuksU6aJRRWIFzFsWjdzIajwe/7lSqbxzKuOpLExKtyrWLSRZfrBicHpRs8r4VqPR+ChaTV6hLRNavP97vFh9ymQyEb/S5PXQ9Etg2/VCJBL5jU2HN3zVZWtVqsiT9Qh52HwoR6NR4+HhoaPNh0QiwZBqWr1j7c0HwpjtoOHh4ebt7W1H2kHj4+PNu7u7jraDXtWTDbpoNNq6vr7W2qCbnJykJ9g+7XiDTsDQMzxlY+x2rK2t9QTtc1Gddnd3n7e3t9kxqVs58SYtUwHDnOFhmaR3Dg8Pw7Ozs9I9YAKcn5+bTWzLC0xsvpdL5cRXFbKCarkNpTTvA/iFA/iOLT4rxGKx/3xWqNfrr58VbD2AvwCwjcLvJYFNRbX8HiI+8vDfr1HBEBIfer4JIMg54gdiv07t9/r05lrFqjzEPlanR4KuQct9XRAt26hxkq5HNG6mlqm6HtGyjRon+QIFQRNRRPZ93AAAAABJRU5ErkJggg==">
-            </td>
-            </tr>
-        </table>
-    </div>
+<div id="myWeather" style="width: 100%;">
+    <iframe src='https://cee7d07ac94e45ef85e27e0308ba7192.elf.site' width='100%' height='1000' frameborder='0'></iframe>
+</div>
+
+<div id="error_box">
+    <table>
+        <tr>
+        <td id="error_weather_messager">
+            <p>Unable to get weather data. Click here to change city for weather.</p>
+        </td>
+        <td data-toggle="tooltip" data-placement="bottom" title="Click to disable Weather Indicator">
+            <img id="delete_button" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAEaUlEQVRoQ+2ZP0wjRxTGPzc265zOoOAGFyEVlNBE/CkMkk0LqSmAlgpEhYQEkXBlENDQAgX1QYuRbArAnV2CmzgFXIkdRTbnKzh9mx208e2fmb0xF538JMvFzs7Ob95737x9G8IPYqEfhANdkP+bJ7se6XqkQzvQqdBKAugFMNK27jKAGoAr3Tw6QWYBzFk/QngZYc6s37kOKB0gXPwegEEuKJVK1efn52ODg4Po7e3FyMi/TimXy6jVaqhWqzg9Pa1fXl7GLIAqgFULKjDTt4Bw4UcApvr7+//JZrPv5ubmzMXLGKHOzs6wvLzcajabYQAFAEsACKZsQUG4zflwOBxZX183VlZWpAHaV0ignZ2d52w2+9JqtT4BmKYDVUmCgCzSE4ZhtG5ubsIidFQf3D6eoTcxMSG8Q88cq8ypCkJPlIaGhprFYtGQDSPZBdE7Y2Njzfv7ewPAqIpnVECYEyXDMKKPj49h3RACljADAwP0TMOCkcoZFZB8JBIZKxaLPbrCyc1TDLPRUTrEFADmjK/JglBiP2xubmJra8t3Uh0DNjY2njOZTA+A32WkWRbkz3g8Hq9UKj85hVShUMDV1RUIqmIHBwdIJpOvZ439XoZYIpH43Gg0HgD86jevDIjpjaOjIywuUrC+tv39fayurprXOU7GlpaWcHx8jL29PVC+nYzXOU7GKzIglMGFp6cnz7OCECcnJ1IwAmJhYcGEcTN6pa+vj5dPADjvonWzDMhTKpUK5XI5UVK4PlgGRhZCPCSdTrOceQFgErmZH8gUT3CvsGqf2AtGFYJzi7C11Isq5mh+IGZ+5PN5TE2RSc6cYIJA8GkUkulpU4E91csPhFq7WSqVHJXFC8sOw3HMBb+ccJrPdqb8AcBV+6VAXl4YouomYHhnEAjxxFDIXOb3AxHhxFWoSHP7lmkDCRJa9pzgwmSluR1CV2gFSnanxJaRZqfg1ZXsyvLrpU5BYGynO6UrsPxyk2rpdDp0cXHx3i/dZSRWFWZmZubvXC5HtfF8h/ZTLVM5ZUoUGQixEbIwuksU6aJRRWIFzFsWjdzIajwe/7lSqbxzKuOpLExKtyrWLSRZfrBicHpRs8r4VqPR+ChaTV6hLRNavP97vFh9ymQyEb/S5PXQ9Etg2/VCJBL5jU2HN3zVZWtVqsiT9Qh52HwoR6NR4+HhoaPNh0QiwZBqWr1j7c0HwpjtoOHh4ebt7W1H2kHj4+PNu7u7jraDXtWTDbpoNNq6vr7W2qCbnJykJ9g+7XiDTsDQMzxlY+x2rK2t9QTtc1Gddnd3n7e3t9kxqVs58SYtUwHDnOFhmaR3Dg8Pw7Ozs9I9YAKcn5+bTWzLC0xsvpdL5cRXFbKCarkNpTTvA/iFA/iOLT4rxGKx/3xWqNfrr58VbD2AvwCwjcLvJYFNRbX8HiI+8vDfr1HBEBIfer4JIMg54gdiv07t9/r05lrFqjzEPlanR4KuQct9XRAt26hxkq5HNG6mlqm6HtGyjRon+QIFQRNRRPZ93AAAAABJRU5ErkJggg==">
+        </td>
+        </tr>
+    </table>
+</div>
 
 <div id="background_selector_widget" class="triangle-top">
     <div id="tabs">
@@ -701,6 +788,17 @@
                                 <span>Quick Access</span>
                                 <label class="switch normal" title="on/off">
                                     <input type="checkbox" id="enable_quick_access" />
+                                    <span class="slider round"></span>
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                </label>
+                            </label>
+                        </li>
+                        <li>
+                            <label data-toggle="tooltip" data-placement="top" title="Display / Hide Weather Widget in newtab page">
+                                <span>Weather Widget</span>
+                                <label class="switch normal" title="on/off">
+                                    <input type="checkbox" id="enable_weather" />
                                     <span class="slider round"></span>
                                     <span class="on">ON</span>
                                     <span class="off">OFF</span>
