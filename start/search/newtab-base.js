@@ -579,7 +579,7 @@
                     utils.storageSync()
                 });
 
-            //Custom dropdown toggle
+            //quick access dropdown toggle
                 if (localStorage.getItem("enable_quick_access") == "no") {
                     $(".quick_access").fadeOut()
                 } else {
@@ -600,6 +600,72 @@
                     utils.storageSync()
                 });
 
+            //weather wodget dropdown toggle
+                if (localStorage.getItem("enable_weather") == "no") {
+                    $("#myWeather").fadeOut(function() {
+                        removeTransformCSS();
+                    });
+                } else {
+                    $("#myWeather").fadeIn()
+                }
+                $("#enable_weather").prop("checked", localStorage.getItem("enable_weather") === "yes");
+                $("#enable_weather").off("change");
+                $("#enable_weather").on("change", function() {
+                    if (!$("#enable_weather").is(":checked")) {
+                        $("#myWeather").fadeOut(function() {
+                            removeTransformCSS();
+                        });
+                    } else {
+                        enableWeatherDelay();
+                        
+                    }
+                    localStorage.setItem("enable_weather", $("#enable_weather").is(":checked") ? "yes" : "no");
+                    chrome.runtime.sendMessage({
+                        syncOptionsNow: true
+                    });
+                    utils.storageSync()
+                });
+
+                function enableWeatherDelay() {
+                    addTransformCSS();
+                    setTimeout(function() {
+                        $("#myWeather").fadeIn();
+                    }, 300); // 1000 milliseconds = 1 second
+                }
+
+                //shift the widghtto the right when weather is disabled by editing the css in index.html
+                function removeTransformCSS() {
+                    var styleSheets = document.styleSheets;
+                    for (var i = 0; i < styleSheets.length; i++) {
+                        var rules = styleSheets[i].cssRules || styleSheets[i].rules;
+                        for (var j = 0; j < rules.length; j++) {
+                            var rule = rules[j];
+                            if (rule.selectorText === ".widght" && rule.style.transform === "translateX(-36%)") {
+                                styleSheets[i].deleteRule(j);
+                                return; // Exit once the rule is found and removed
+                            }
+                        }
+                    }
+                }
+
+                //shift the widgh to the left when weather is enabled by editing the css in index.html
+                function addTransformCSS() {
+                    var style = document.createElement('style');
+                    style.type = 'text/css';
+                    style.id = 'widght-transform-style';
+                    style.innerHTML = '.widght { transform: translateX(-36%); }';
+                    document.getElementsByTagName('head')[0].appendChild(style);
+                }
+                
+                function addTransformCSS() {
+                    var style = document.createElement('style');
+                    style.type = 'text/css';
+                    style.id = 'widght-transform-style';
+                    style.innerHTML = '.widght { transform: translateX(-36%); }';
+                    document.getElementsByTagName('head')[0].appendChild(style);
+                }
+                
+                
 
                 $("#enable_shortcuts").prop("checked", localStorage.getItem("enable_shortcuts") === "yes");
                 $("#enable_shortcuts").off("change");
