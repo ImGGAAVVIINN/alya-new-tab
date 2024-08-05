@@ -437,7 +437,18 @@
             margin-left: 5px;
         }
 
+        #background_selector_widget {
+            right: 30px;
+        }
 
+        .triangle-top::before {
+            left: 62.5%; /* Default position */
+        }
+
+        .triangle-top.toggle::before {
+            left: 28%; /* Toggled position */
+        }
+        
 
         /*fix apps icon for firefox web browser*/
 
@@ -511,13 +522,13 @@
             background-image:url('skin/icons/favicons/reddit.png');background-size:cover;
         }
 
-
-
         
     </style>
 
 </head>
 <body>
+
+    
 
 <!-- background -->
 <div class="background" id="__bg" style="display: none;">

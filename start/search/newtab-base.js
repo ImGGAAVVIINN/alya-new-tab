@@ -600,31 +600,60 @@
                     utils.storageSync()
                 });
 
-            //weather wodget dropdown toggle
+
+
+
+
+
+                // Initialize weather widget visibility based on localStorage
                 if (localStorage.getItem("enable_weather") == "no") {
                     $("#myWeather").fadeOut(function() {
                         removeTransformCSS();
                     });
                 } else {
-                    $("#myWeather").fadeIn()
+                    $("#myWeather").fadeIn();
                 }
+                // Set the checkbox state based on localStorage
                 $("#enable_weather").prop("checked", localStorage.getItem("enable_weather") === "yes");
+
+                // Function to toggle the position of the pseudo-element
+                function togglePseudoElementPosition(isEnabled) {
+                    var element = document.querySelector('.triangle-top');
+                    if (isEnabled) {
+                            element.classList.add('toggle');                        
+                    } else {
+                        setTimeout(function() {
+                            element.classList.remove('toggle');
+                        }, 400);
+                    }
+                }
+
+                // Set initial position based on localStorage
+                togglePseudoElementPosition(localStorage.getItem("enable_weather") === "yes");
+
+                // Add event listener for the checkbox change
                 $("#enable_weather").off("change");
                 $("#enable_weather").on("change", function() {
-                    if (!$("#enable_weather").is(":checked")) {
+                    var isChecked = $("#enable_weather").is(":checked");
+                    
+                    if (!isChecked) {
                         $("#myWeather").fadeOut(function() {
                             removeTransformCSS();
                         });
                     } else {
                         enableWeatherDelay();
-                        
                     }
-                    localStorage.setItem("enable_weather", $("#enable_weather").is(":checked") ? "yes" : "no");
+
+                    localStorage.setItem("enable_weather", isChecked ? "yes" : "no");
+                    togglePseudoElementPosition(isChecked);
+
                     chrome.runtime.sendMessage({
                         syncOptionsNow: true
                     });
-                    utils.storageSync()
+
+                    utils.storageSync();
                 });
+
 
                 function enableWeatherDelay() {
                     addTransformCSS();
@@ -656,8 +685,6 @@
                     style.innerHTML = '.widght { transform: translateX(-70%); }';
                     document.getElementsByTagName('head')[0].appendChild(style);
                 }
-                
-                
                 
 
                 $("#enable_shortcuts").prop("checked", localStorage.getItem("enable_shortcuts") === "yes");

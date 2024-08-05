@@ -1384,7 +1384,6 @@ h1.hour {
   background-color: #ffffff;
   position: absolute;
   padding: 20px 15px 20px 20px;
-  right: 30px;
   top: 70px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
   z-index: 99999;
@@ -1413,7 +1412,6 @@ h1.hour {
 #background_selector_widget.triangle-top::before {
   content: '';
   position: absolute;
-  left: 28%;
   margin-left: -10px;
   top: -10px;
   width: 0;
