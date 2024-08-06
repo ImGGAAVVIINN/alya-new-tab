@@ -1,2 +1,1 @@
-change options popup windows location depends on widget enabkle ot not shift
-apply weather & clock position fix to big search box
+change dropdown list to serach engine name

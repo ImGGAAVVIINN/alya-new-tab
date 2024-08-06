@@ -21,8 +21,9 @@
     <style>
         #myWeather {
             position: absolute;
-            margin-top: -0.5%;
-            transform: translateX(89%);
+            top: -30px;
+            transform: translateX(88.5%);
+            width: 380px;
         }
     
         .widght {
@@ -448,8 +449,15 @@
         .triangle-top.toggle::before {
             left: 28%; /* Toggled position */
         }
-        
 
+        .time {
+            width: 150px;
+            display: inline-block;
+            vertical-align: top;
+            right: -100px;
+            margin-right: 10px;
+        }
+        
         /*fix apps icon for firefox web browser*/
 
         /*
@@ -649,11 +657,9 @@
                 <div class="city"></div>
             </div>
         </div>
-        
-    </div>
-    
-    <div id="myWeather" style="width: 100%;">
-        <iframe src='https://cee7d07ac94e45ef85e27e0308ba7192.elf.site' width='100%' height='1000' frameborder='0'></iframe>
+        <div id="myWeather" style="width: 100%;">
+            <iframe style="width: 380px; background-image: url(&quot;chrome-extension://cgdckhjamombkgnamokobdbobmmngpag/start/skin/images/weatherbg.png&quot;);" src="https://4d10da0de4d845e5957b00400b68a810.elf.site" width="100%" height="2000" frameborder="0"></iframe>
+        </div>
     </div>
 
     <div id="error_box">
