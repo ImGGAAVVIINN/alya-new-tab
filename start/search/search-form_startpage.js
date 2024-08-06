@@ -513,7 +513,11 @@
                 T = setTimeout(O, y)
             }
         };
-        $("#search-input").attr("placeholder", "Search" + " " + t["ShortName"]);
+        //$("#search-input").attr("placeholder", "Search" + " " + t["ShortName"]);
+        const shortName = "<b>" + t["ShortName"] + "</b>";
+        const text = "Search with " + shortName;
+        const imgHtml = '<img src="https://feren-os.github.io/start-page/resources/pickengine.png" alt="Change the Search Engine..." style="top: -20px; vertical-align: middle;">';
+        document.getElementById('replace-me').innerHTML = text + " " + imgHtml;
         $("#search-input").focus();
         $("#search-input").addClass("custom");
         function E() {

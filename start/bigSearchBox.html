@@ -33,6 +33,11 @@
             vertical-align: top;
             right: -100px;
         }
+
+        .widght
+        {
+            right: 30px;
+        }
     
         /* Dropdown Button */
         .dropdown {
@@ -339,14 +344,6 @@
             padding-top: 9px;
             padding-right: 90px;
         }
-
-        #search-input::placeholder {
-            opacity: 0.75;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 100px;
-        
-        }
-
                 
         #scriptSelector {
             padding: 10px 40px 10px 10px; /* Adjusted padding to avoid text overlapping the arrow */
@@ -403,24 +400,33 @@
         }
 
         #search-input {
-            width: 100%;
-            background: transparent;
-            box-shadow: none;
-            height: 150px !important;
-            line-height: 45px !important;
-            border: none;
-            padding: 10px;
-            font-size: 100px;
-            font-family: Arial, sans-serif;
-            transition: all 0.32s;
-            color:white;
-        }
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    height: 150px !important;
+    line-height: 45px !important;
+    border: none;
+    padding: 10px;
+    font-size: 100px;
+    font-family: Arial, sans-serif;
+    transition: all 0.32s;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add your text shadow here */
+}
 
-        #search-input:focus {
-            background: transparent;
-        }
+#search-input:focus {
+    background: transparent;
+}
 
-
+#search-input::placeholder {
+    opacity: 0.75;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 100px;
+    text-shadow: none; /* Ensure no text shadow on placeholder */
+    background-image: url(skin/images/placeholderBG.png); 
+    background-size: cover;   
+    overflow: hidden; /* Hide scrollbars */
+}
 
         /* Style for the toggle switch */
         .switch {
@@ -565,6 +571,7 @@
             background-image:url('skin/icons/favicons/reddit.png');background-size:cover;
         }
 
+
         
     </style>
     
@@ -659,7 +666,7 @@
     </div>
     
     <div id="myWeather" style="width: 100%;">
-        <iframe style="width: 380px; background-image: url(&quot;chrome-extension://cgdckhjamombkgnamokobdbobmmngpag/start/skin/images/weatherbg.png&quot;);" src="https://4d10da0de4d845e5957b00400b68a810.elf.site" width="100%" height="2000" frameborder="0"></iframe>
+        <iframe style="width: 380px; background-image: url(&quot;chrome-extension://cgdckhjamombkgnamokobdbobmmngpag/start/skin/images/weatherbg.png&quot;);" src="https://17f758d2da6b4e24952eef4f9e31bc5e.elf.site" width="100%" height="2000" frameborder="0"></iframe>
     </div>
 
 </div>
@@ -1086,10 +1093,10 @@
 
     <div class="search-box" style="top: 40%; width: 1750px; right: 0px; margin-left: 0px;">
         
-        <div class="dropdown" tabindex="0" style="font-family: Arial, sans-serif; color: white; top: 20px; position: sticky; margin-left: 150px; bottom: 100px;">
-            <button class="dropbtn" style="left: -40px; font-family: Arial, sans-serif; color: white; position: absolute; font-size: 26px; padding-right: 10px;padding-left: 0px; padding-top: 7px; width: 200px;">Search with 
-             <img src="https://feren-os.github.io/start-page/resources/pickengine.png" alt="Change the Search Engine..." style="top: -20px; vertical-align: middle; "></button>
-            <div class="dropdown-content" id="dropdownContent" style="top: 40px; right: 50px;">
+        <div class="dropdown" tabindex="0" style="z-index: 1000; font-family: Arial, sans-serif; color: white; top: 20px; position: sticky; margin-left: 150px; bottom: 100px;">
+            <button class="dropbtn" id="replace-me" style="text-shadow: 4px 4px 4px #00000050; left: -40px; font-family: Arial, sans-serif; color: white; position: absolute; font-size: 26px; padding-right: 10px;padding-left: 0px; padding-top: 7px; width: 310px;">Search with 
+            <img src="https://feren-os.github.io/start-page/resources/pickengine.png" alt="Change the Search Engine..." style="top: -20px; vertical-align: middle; "></button>
+            <div class="dropdown-content" id="dropdownContent" style="top: 40px; right: 50px;left: 100px; position: absolute;">
                 <div id="siteList" style="margin-bottom: 0px; margin-top: -4px; padding: 0 10px;">
                     <!-- Dropdown items will be added here -->
                     <div data-file="/start/search/search-form.js">Google</div>
@@ -1108,8 +1115,8 @@
 
      <div id="search-box-wrapper" style="margin-left: 100px; margin-top: 20px;">
          <div id="search-box">
-             <input id="search-input" dir="auto" type="search" autofocus="autofocus" tabindex="1" autocomplete="off" spellcheck="true" placeholder="Search the web...">
-         </div>
+            <input id="search-input" dir="auto" type="search" autofocus="autofocus" tabindex="1" autocomplete="off" spellcheck="true" placeholder="Search the web...">
+        </div>
      </div>
      <ul id="search-suggestion-pad"></ul>
  </div>
@@ -1163,8 +1170,8 @@
     </footer>
 </div>-->
 
-<div class="countDown">
-    <ul id="countdown" style="display: none;">
+<div class="countDown" style="left: 25%">
+    <ul id="countdown" style="right: 25%">
       <div class="title" id="countdownTitle">
 
       </div>
