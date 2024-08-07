@@ -1,2 +1,3 @@
 Make clicking on weather show more info
 big serach box cannot change am/pm & 24 hour with click
+upgrade jquery and submit for Firefox validation
