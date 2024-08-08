@@ -1,1 +1,0 @@
-Make clicking on weather show more info
