@@ -486,30 +486,26 @@ document.addEventListener('click', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
   const iframeContainer = document.getElementById('iframeContainer');
 
-  // Position the iframeContainer off-screen by moving it downwards
+  // Position the iframeContainer slightly off-screen (vertically)
   iframeContainer.style.position = 'absolute';
-  iframeContainer.style.top = '16px';
-  iframeContainer.style.top = '1000px'; // Move the iframeContainer down by 900px
+  iframeContainer.style.top = '800px'; // Move it slightly above the screen
+  iframeContainer.style.left = '0'; // Ensure it's aligned horizontally
 
   // Apply fade-in class to ensure the CSS is rendered
   iframeContainer.classList.add('fade-in');
   iframeContainer.classList.remove('fade-out');
 
-  // After a long delay, move it back to its original position
+  // After a short delay, move it back to its original position
   setTimeout(() => {
-    iframeContainer.style.top = '0'; // Move it back to the original position
-  }, 1500); // 5000ms (5 seconds) delay before moving it back
+    iframeContainer.style.top = '800'; // Move it back to the original position
+  }, 100); // Adjust the delay if necessary
 
   // Restore the original animation duration after moving it back
   setTimeout(() => {
     iframeContainer.style.animationDuration = '1s';
-  }, 4000); // Ensure this delay matches your fade-in duration plus the move back delay
-
-  setTimeout(() => {
-    iframeContainer.style.top = '16px'; 
-  }, 1500);
-
+  }, 1000); // Ensure this delay matches your fade-in duration
 });
+
 
 
 
