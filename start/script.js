@@ -457,3 +457,48 @@ document.addEventListener('DOMContentLoaded', function() {
       window.loadAutoHideModule(window);
   }
 });
+
+// Fade in the iframe when clicking on the myWeatherOverlay
+document.getElementById('myWeatherOverlay').addEventListener('click', function() {
+  console.log("Clicked");
+  const iframeContainer = document.getElementById('iframeContainer');
+  iframeContainer.classList.add('fade-in');
+  iframeContainer.classList.remove('fade-out');
+});
+
+// Fade out the iframe when clicking anywhere else on the page
+document.addEventListener('click', function(event) {
+  const iframeContainer = document.getElementById('iframeContainer');
+  const isClickInside = iframeContainer.contains(event.target) || document.getElementById('myWeather').contains(event.target);
+
+  if (!isClickInside && iframeContainer.classList.contains('fade-in')) {
+      iframeContainer.classList.add('fade-out');
+      setTimeout(() => {
+          iframeContainer.classList.remove('fade-in');
+          iframeContainer.classList.remove('fade-out');
+      }, 1000); // Duration of the fade-out animation
+  }
+}, true);
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const iframeContainer = document.getElementById('iframeContainer');
+
+  // Temporarily set the animation duration to 0s
+  iframeContainer.style.animationDuration = '0s';
+
+  // Unhide and hide the iframeContainer instantly
+  iframeContainer.classList.add('fade-in');
+  iframeContainer.classList.remove('fade-out');
+
+  // Restore the original animation duration after a short delay
+  setTimeout(() => {
+      iframeContainer.style.animationDuration = '1s';
+  }, 1000); // Wait for 1 second before restoring the animation duration
+});
+
+
+
+

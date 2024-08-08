@@ -27,11 +27,52 @@
             width: 380px;
         }
 
+        #myWeatherOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        #iframeContainer {
+            display: none;
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            width: 300px; /* Adjust width as needed */
+            height: 612px; /* Adjust height as needed */
+            z-index: 1000;
+            background-color: transparent;
+        }
+
+        #iframeContainer.fade-in {
+            display: block;
+            animation: fadeIn 0s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #iframeContainer.fade-out {
+            animation: fadeOut 0s forwards;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
         .time {
             width: 150px;
             display: inline-block;
             vertical-align: top;
-            right: -100px;
+            right: -10px;
         }
     
         .widght
@@ -659,10 +700,18 @@
                 <div class="city"></div>
             </div>
         </div>
+
         <div id="myWeather" style="width: 100%;">
             <iframe style="width: 380px; background-image: url(&quot;chrome-extension://cgdckhjamombkgnamokobdbobmmngpag/start/skin/images/weatherbg.png&quot;);" src="https://17f758d2da6b4e24952eef4f9e31bc5e.elf.site" width="100%" height="2000" frameborder="0"></iframe>
+            <div id="myWeatherOverlay"></div>
         </div>
+
+        
     </div>
+
+    
+        <iframe id="iframeContainer" scrolling="no" frameBorder="0" id="overlayIframe" style="overflow: hidden; width: 300px;height: 612px;" src="https://94039472fc684428be8f39b8d0822831.elf.site"></iframe>
+    
 
     <div id="error_box">
         <table>
@@ -1176,6 +1225,7 @@
 
 <!-- newtab features -->
 <script data-source="internal" type="text/javascript" src="/start/search/newtab-base.js"></script>
+<script data-source="internal" type="text/javascript" src="/start/search/weatherFix.js"></script>
 <script data-source="internal" type="text/javascript" src="/start/search/AutoSuggest.js"></script>
 <script data-source="internal" type="text/javascript" src="/start/search/search-form.js"></script>
 <script data-source="internal" type="text/javascript" src="/start/search/todo_script.js"></script>
@@ -1189,4 +1239,5 @@
 <script src="script.js"></script>
 
 
-</b
+</body>
+</html> 
