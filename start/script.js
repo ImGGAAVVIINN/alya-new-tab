@@ -503,7 +503,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Restore the original animation duration after moving it back
   setTimeout(() => {
     iframeContainer.style.animationDuration = '1s';
-  }, 4000); // Ensure this delay matches your fade-in duration plus the move back delay
+  }, 6000); // Ensure this delay matches your fade-in duration plus the move back delay
 
   setTimeout(() => {
     iframeContainer.style.top = '16px'; 
