@@ -1,5 +1,8 @@
 removeTransformCSS();
-addTransformCSS();
+setTimeout(function() {
+    addTransformCSS();
+  }, 10);
+
 
 function removeTransformCSS() {
     var styleSheets = document.styleSheets;

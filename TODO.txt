@@ -1,1 +1,2 @@
-Big search box on waird res shifts left
+fix widget not moving when weather is toggeled
+make quick acces on by default
