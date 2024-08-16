@@ -1,7 +1,7 @@
 removeTransformCSS();
 setTimeout(function() {
     addTransformCSS();
-  }, 10);
+  }, 100);
 
 
 function removeTransformCSS() {
