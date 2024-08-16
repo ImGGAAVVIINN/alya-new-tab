@@ -498,16 +498,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // After a long delay, move it back to its original position
   setTimeout(() => {
     iframeContainer.style.top = '0'; // Move it back to the original position
-  }, 2000); // 5000ms (5 seconds) delay before moving it back
+  }, 6000); // 5000ms (5 seconds) delay before moving it back
 
   // Restore the original animation duration after moving it back
   setTimeout(() => {
     iframeContainer.style.animationDuration = '1s';
-  }, 6000); // Ensure this delay matches your fade-in duration plus the move back delay
+  }, 7000); // Ensure this delay matches your fade-in duration plus the move back delay
 
   setTimeout(() => {
     iframeContainer.style.top = '16px'; 
-  }, 2200);
+  }, 6200);
 
 });
 
