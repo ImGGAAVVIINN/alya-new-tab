@@ -511,6 +511,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+$(document).ready(function () {
+  // Hide the apps menu when quick_access is hovered
+  utils.resetMouseEnterHandler($(".quick_access"), function(e) {
+      e.stopPropagation();
+      $("#tool_menu").fadeOut(200)  // Hide the apps dropdown
+      $(".quick_access_dropdown").show(200);  // Show the quick_access dropdown (if needed)
+  });
+
+  // Show the apps menu when it's hovered
+  utils.resetMouseEnterHandler($(".apps"), function(e) {
+      e.stopPropagation();
+      $(".apps").show(200);  // Show the apps dropdown
+  });
+});
 
 
 

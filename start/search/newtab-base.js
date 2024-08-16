@@ -580,25 +580,32 @@
                 });
 
             //quick access dropdown toggle
-                if (localStorage.getItem("enable_quick_access") == "no") {
-                    $(".quick_access").fadeOut()
-                } else {
-                    $(".quick_access").fadeIn()
+                if (localStorage.getItem("enable_quick_access") === null) {
+                    localStorage.setItem("enable_quick_access", "yes");
                 }
+
+                if (localStorage.getItem("enable_quick_access") == "no") {
+                    $(".quick_access").fadeOut();
+                } else {
+                    $(".quick_access").fadeIn();
+                }
+
                 $("#enable_quick_access").prop("checked", localStorage.getItem("enable_quick_access") === "yes");
+
                 $("#enable_quick_access").off("change");
                 $("#enable_quick_access").on("change", function() {
                     if (!$("#enable_quick_access").is(":checked")) {
-                        $(".quick_access").fadeOut()
+                        $(".quick_access").fadeOut();
                     } else {
-                        $(".quick_access").fadeIn()
+                        $(".quick_access").fadeIn();
                     }
                     localStorage.setItem("enable_quick_access", $("#enable_quick_access").is(":checked") ? "yes" : "no");
                     chrome.runtime.sendMessage({
                         syncOptionsNow: true
                     });
-                    utils.storageSync()
+                    utils.storageSync();
                 });
+
 
 
 
@@ -606,85 +613,90 @@
 
 
                 // Initialize weather widget visibility based on localStorage
-                if (localStorage.getItem("enable_weather") == "no") {
-                    $("#myWeather").fadeOut(function() {
-                        removeTransformCSS();
-                    });
-                } else {
-                    $("#myWeather").fadeIn();
-                }
-                // Set the checkbox state based on localStorage
-                $("#enable_weather").prop("checked", localStorage.getItem("enable_weather") === "yes");
+if (localStorage.getItem("enable_weather") === null) {
+    localStorage.setItem("enable_weather", "yes");
+}
 
-                // Function to toggle the position of the pseudo-element
-                function togglePseudoElementPosition(isEnabled) {
-                    var element = document.querySelector('.triangle-top');
-                    if (isEnabled) {
-                            element.classList.add('toggle');                        
-                    } else {
-                        setTimeout(function() {
-                            element.classList.remove('toggle');
-                        }, 400);
-                    }
-                }
+if (localStorage.getItem("enable_weather") == "no") {
+    $("#myWeather").fadeOut(function() {
+        removeTransformCSS();
+    });
+} else {
+    $("#myWeather").fadeIn();
+}
 
-                // Set initial position based on localStorage
-                togglePseudoElementPosition(localStorage.getItem("enable_weather") === "yes");
+// Set the checkbox state based on localStorage
+$("#enable_weather").prop("checked", localStorage.getItem("enable_weather") === "yes");
 
-                // Add event listener for the checkbox change
-                $("#enable_weather").off("change");
-                $("#enable_weather").on("change", function() {
-                    var isChecked = $("#enable_weather").is(":checked");
-                    
-                    if (!isChecked) {
-                        $("#myWeather").fadeOut(function() {
-                            removeTransformCSS();
-                        });
-                    } else {
-                        enableWeatherDelay();
-                    }
+// Function to toggle the position of the pseudo-element
+function togglePseudoElementPosition(isEnabled) {
+    var element = document.querySelector('.triangle-top');
+    if (isEnabled) {
+        element.classList.add('toggle');                        
+    } else {
+        setTimeout(function() {
+            element.classList.remove('toggle');
+        }, 400);
+    }
+}
 
-                    localStorage.setItem("enable_weather", isChecked ? "yes" : "no");
-                    togglePseudoElementPosition(isChecked);
+// Set initial position based on localStorage
+togglePseudoElementPosition(localStorage.getItem("enable_weather") === "yes");
 
-                    chrome.runtime.sendMessage({
-                        syncOptionsNow: true
-                    });
+// Add event listener for the checkbox change
+$("#enable_weather").off("change");
+$("#enable_weather").on("change", function() {
+    var isChecked = $("#enable_weather").is(":checked");
+    
+    if (!isChecked) {
+        $("#myWeather").fadeOut(function() {
+            removeTransformCSS();
+        });
+    } else {
+        enableWeatherDelay();
+    }
 
-                    utils.storageSync();
-                });
+    localStorage.setItem("enable_weather", isChecked ? "yes" : "no");
+    togglePseudoElementPosition(isChecked);
 
+    chrome.runtime.sendMessage({
+        syncOptionsNow: true
+    });
 
-                function enableWeatherDelay() {
-                    addTransformCSS();
-                    setTimeout(function() {
-                        $("#myWeather").fadeIn();
-                    }, 300); // 1000 milliseconds = 1 second
-                }
+    utils.storageSync();
+});
 
-                //shift the widghtto the right when weather is disabled by editing the css in index.html
-                function removeTransformCSS() {
-                    var styleSheets = document.styleSheets;
-                    for (var i = 0; i < styleSheets.length; i++) {
-                        var rules = styleSheets[i].cssRules || styleSheets[i].rules;
-                        for (var j = 0; j < rules.length; j++) {
-                            var rule = rules[j];
-                            if (rule.selectorText === ".widght" && rule.style.transform === "translateX(-70%)") {
-                                styleSheets[i].deleteRule(j);
-                                return; // Exit once the rule is found and removed
-                            }
-                        }
-                    }
-                }
+function enableWeatherDelay() {
+    addTransformCSS();
+    setTimeout(function() {
+        $("#myWeather").fadeIn();
+    }, 300); // 1000 milliseconds = 1 second
+}
 
-                //shift the widgh to the left when weather is enabled by editing the css in index.html
-                function addTransformCSS() {
-                    var style = document.createElement('style');
-                    style.type = 'text/css';
-                    style.id = 'widght-transform-style';
-                    style.innerHTML = '.widght { transform: translateX(-70%); }';
-                    document.getElementsByTagName('head')[0].appendChild(style);
-                }
+//shift the widget to the right when weather is disabled by editing the CSS in index.html
+function removeTransformCSS() {
+    var styleSheets = document.styleSheets;
+    for (var i = 0; i < styleSheets.length; i++) {
+        var rules = styleSheets[i].cssRules || styleSheets[i].rules;
+        for (var j = 0; j < rules.length; j++) {
+            var rule = rules[j];
+            if (rule.selectorText === ".widght" && rule.style.transform === "translateX(-60%)") {
+                styleSheets[i].deleteRule(j);
+                return; // Exit once the rule is found and removed
+            }
+        }
+    }
+}
+
+//shift the widget to the left when weather is enabled by editing the CSS in index.html
+function addTransformCSS() {
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    style.id = 'widght-transform-style';
+    style.innerHTML = '.widght { transform: translateX(-60%); }';
+    document.getElementsByTagName('head')[0].appendChild(style);
+}
+
                 
 
                 $("#enable_shortcuts").prop("checked", localStorage.getItem("enable_shortcuts") === "yes");

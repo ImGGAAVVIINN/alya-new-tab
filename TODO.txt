@@ -1,2 +1,3 @@
-fix widget not moving when weather is toggeled
-make quick acces on by default
+Make it untrigger apps when i hover quick access
+
+Add firefox link to readme

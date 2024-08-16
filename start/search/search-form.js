@@ -335,6 +335,8 @@
             e.stopPropagation();
             _()
         });
+
+
         $("#tool_menu").hide();
         utils.resetMouseEnterHandler($("#lnk_tool"), function(e) {
             e.stopPropagation();
@@ -343,6 +345,8 @@
             $("#support_menu").fadeOut(200);
             $("#tool_menu").show(200)
         });
+
+        
         utils.resetClickHandler($("#lnk_tool"), function(e) {
             e.stopPropagation();
             $("#topsites_menu").fadeOut(200);
