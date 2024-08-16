@@ -511,7 +511,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-
+Make the page scroll tutomaticly to the top left on load
+window.onload = function() {
+    window.scrollTo(0, 0); // Scrolls to the top-left corner of the page
+};
 
 
 
