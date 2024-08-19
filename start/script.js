@@ -1,3 +1,9 @@
+setTimeout(function() {
+  window.onload = function() {
+    window.scrollTo(0, 0); // Scrolls to the top-left corner of the page
+  };
+}, 1000);
+
 document.getElementById('urlInput').addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
     let url = e.target.value.trim();
@@ -498,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // After a long delay, move it back to its original position
   setTimeout(() => {
     iframeContainer.style.top = '0'; // Move it back to the original position
-  }, 6000); // 5000ms (5 seconds) delay before moving it back
+  }, 5500); // 5000ms (5 seconds) delay before moving it back
 
   // Restore the original animation duration after moving it back
   setTimeout(() => {
@@ -507,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setTimeout(() => {
     iframeContainer.style.top = '16px'; 
-  }, 6200);
+  }, 5700);
 
 });
 
