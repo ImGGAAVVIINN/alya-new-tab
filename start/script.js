@@ -34,6 +34,7 @@ dropdown.addEventListener('blur', function() {
   }, 100);
 });
 
+// Collapse the dropdown when it loses focus due to the Tab key
 dropdown.addEventListener('keydown', function(e) {
   const siteEntries = dropdownContent.querySelectorAll('.site-entry');
   let currentIndex = -1;
@@ -71,6 +72,8 @@ dropdown.addEventListener('keydown', function(e) {
       break;
     case 'Tab':
       dropdown.blur();
+      dropdownContent.style.maxHeight = '0';
+      dropdownContent.style.opacity = '0';
       break;
     default:
       break;
