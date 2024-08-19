@@ -22,7 +22,7 @@
         #myWeather {
             position: absolute;
             top: -30px;
-            right: -20px;
+            right: -10px;
             transform: translateX(88.5%);
             width: 380px;
         }
@@ -667,7 +667,7 @@
         
         <div class="quick_access">
             <div class="dropdown" tabindex="0">
-                <button class="dropbtn">Quick Access</button>
+                <button class="dropbtn" tabindex="-1">Quick Access</button>
                 <div class="dropdown-content" id="dropdownContent">
                     <div class="input-wrapper" style="height: 40px;">
                         <input type="text" id="urlInput" placeholder="Enter URL" />
@@ -692,9 +692,9 @@
                         </li>
                     </template>
                     
-                </div>
             </div>
-        </div>     
+        </div>
+    </div>  
         
 <!-- made with love by Happy GrassBlock :3 -->
        
@@ -1161,11 +1161,9 @@
             <span class="close" id="close-undo-box-btn"></span>
         </div>
     </div>
-
-    <div class="search-box" style="top: 40%; width: 1750px; right: 0px; margin-left: 0px;">
-        
-        <div class="dropdown" tabindex="0" style="z-index: 1000; font-family: Arial, sans-serif; color: white; top: 20px; position: sticky; margin-left: 150px; bottom: 100px;">
-            <button class="dropbtn" id="replace-me" style="text-shadow: 4px 4px 4px #00000050; left: -40px; font-family: Arial, sans-serif; color: white; position: absolute; font-size: 26px; padding-right: 10px;padding-left: 0px; padding-top: 7px; width: 310px;">Search with 
+    <div class="search-box" style="top: 40%; width: 1750px; right: 0px; margin-left: 0px;">        
+        <div class="dropdown" tabindex="-1" style="z-index: 1000; font-family: Arial, sans-serif; color: white; top: 20px; position: sticky; margin-left: 150px; bottom: 100px;">
+            <button class="dropbtn" tabindex="-1" id="replace-me" style="text-shadow: 4px 4px 4px #00000050; left: -40px; font-family: Arial, sans-serif; color: white; position: absolute; font-size: 26px; padding-right: 10px;padding-left: 0px; padding-top: 7px; width: 310px;">Search with 
             <img src="https://feren-os.github.io/start-page/resources/pickengine.png" alt="Change the Search Engine..." style="top: -20px; vertical-align: middle; "></button>
             <div class="dropdown-content" id="dropdownContent" style="top: 40px; right: 50px;left: 100px; position: absolute;">
                 <div id="siteList" style="margin-bottom: 0px; margin-top: -4px; padding: 0 10px;">
@@ -1183,13 +1181,12 @@
                 </div>
             </div>
         </div>
-
-     <div id="search-box-wrapper" style="margin-left: 100px; margin-top: 20px;">
-         <div id="search-box">
-            <input id="search-input" dir="auto" type="search" autofocus="autofocus" tabindex="1" autocomplete="off" spellcheck="true" placeholder="Search the web...">
-        </div>
-     </div>
-     <ul id="search-suggestion-pad"></ul>
+    <div id="search-box-wrapper" style="margin-left: 100px; margin-top: 20px;">
+        <div id="search-box">
+           <input id="search-input" dir="auto" type="search" autofocus="autofocus" tabindex="1" autocomplete="off" spellcheck="true" placeholder="Search the web...">
+       </div>
+    </div>
+    <ul id="search-suggestion-pad"></ul>
  </div>
 <!-- made with love by Happy GrassBlock :3 -->
     <footer>
