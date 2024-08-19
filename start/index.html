@@ -19,10 +19,12 @@
     <script data-source="internal" type="text/javascript" src="/start/common/prefs-sys.js"></script>
     <script data-source="internal" type="text/javascript" src="/start/chrome/utils.js"></script>
     <style>
+
+
         #myWeather {
             position: absolute;
             top: -30px;
-            right: -20px;
+            right: -10px;
             transform: translateX(88.5%);
             width: 380px;
         }
@@ -609,7 +611,7 @@
 
         <div class="quick_access">
             <div class="dropdown" tabindex="0">
-                <button class="dropbtn">Quick Access</button>
+                <button class="dropbtn" tabindex="-1">Quick Access</button>
                 <div class="dropdown-content" id="dropdownContent">
                     <div class="input-wrapper" style="height: 40px;">
                         <input type="text" id="urlInput" placeholder="Enter URL" />
@@ -645,24 +647,23 @@
 
     <div class="search-box" style="top: 0px;">
         
-           <div class="dropdown" tabindex="0" style="font-family: Arial, sans-serif; color: white; top: 20px; width: 300px;">
-               <button class="dropbtn" style="left: -40px; font-family: Arial, sans-serif; color: white; position: absolute; font-size: 20px; padding-right: 10px;padding-left: 0px; padding-top: 7px;">Search with 
+           <div class="dropdown" tabindex="-1" style="font-family: Arial, sans-serif; color: white; top: 20px; width: 300px;">
+               <button class="dropbtn" tabindex="-1" style="left: -40px; font-family: Arial, sans-serif; color: white; position: absolute; font-size: 20px; padding-right: 10px;padding-left: 0px; padding-top: 7px;">Search with 
                 <img src="https://feren-os.github.io/start-page/resources/pickengine.png" alt="Change the Search Engine..." style="top: -20px; vertical-align: middle; width: 20px; height: 20px;"></button>
-               <div class="dropdown-content" id="dropdownContent" style="top: 40px; right: 220px;">
-                   <div id="siteList" style="margin-bottom: 0px; margin-top: -4px; padding: 0 10px;">
-                       <!-- Dropdown items will be added here -->
-                       <div data-file="/start/search/search-form.js">Google</div>
-                       <div data-file="/start/search/search-form_youtube.js">YouTube</div>
-                       <div data-file="/start/search/search-form_bing.js">Bing</div>
-                       <div data-file="/start/search/search-form_yahoo.js">Yahoo</div>
-                       <div data-file="/start/search/search-form_brave.js">Brave</div>
-                       <div data-file="/start/search/search-form_ecosia.js">Ecosia</div>
-                       <div data-file="/start/search/search-form_duckduckgo.js">DuckDuckGo</div>
-                       <div data-file="/start/search/search-form_startpage.js">Startpage</div>
-                       <div data-file="/start/search/search-form_qwant.js">Qwant</div>
-                       <div data-file="/start/search/search-form_baidu.js">Baidu 百度</div>
-                   </div>
-               </div>
+                <div class="dropdown-content" id="dropdownContent" style="top: 40px; right: 220px;">
+                    <div id="siteList" style="margin-bottom: 0px; margin-top: -4px; padding: 0 10px;">
+                        <div data-file="/start/search/search-form.js">Google</div>
+                        <div data-file="/start/search/search-form_youtube.js">YouTube</div>
+                        <div data-file="/start/search/search-form_bing.js">Bing</div>
+                        <div data-file="/start/search/search-form_yahoo.js">Yahoo</div>
+                        <div data-file="/start/search/search-form_brave.js">Brave</div>
+                        <div data-file="/start/search/search-form_ecosia.js">Ecosia</div>
+                        <div data-file="/start/search/search-form_duckduckgo.js">DuckDuckGo</div>
+                        <div data-file="/start/search/search-form_startpage.js">Startpage</div>
+                        <div data-file="/start/search/search-form_qwant.js">Qwant</div>
+                        <div data-file="/start/search/search-form_baidu.js">Baidu 百度</div>
+                    </div>
+                </div>
            </div>
       
 

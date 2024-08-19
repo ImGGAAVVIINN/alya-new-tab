@@ -266,7 +266,8 @@
 
         /* Add this to your CSS */
         .site-entry:focus {
-            background-color: rgba(255, 255, 255, 0.2); /* Adjust the color as needed */
+            background-color: rgba(255, 255, 255, 0.15); /* Adjust the color as needed */
+            backdrop-filter: blur(5px);
             outline: none; /* Remove the default outline */
         }
     
@@ -631,16 +632,8 @@
     z-index: 9999; /* Ensures the overlay covers everything */
     pointer-events: none; /* Allows interaction with underlying elements */
 }
-
-
-
-
-
-
-
-        
-    </style>
-    
+</style>
+   
 </head>
 <body scrolling="no">
 
@@ -679,18 +672,18 @@
                     <div class="input-wrapper" style="height: 40px;">
                         <input type="text" id="urlInput" placeholder="Enter URL" />
                     </div>
-                    <div id="siteList" style="margin-bottom: 6px; margin-top: -4px; padding: 0 10px;">
+                    <div id="siteList" style="padding: 10px; padding-top: 6px;">
                         <!-- Entries will be added here -->
                     </div>
                     <!-- Entry Template -->
                     <template id="siteEntryTemplate">
-                        <li class="site-entry" tabindex="-1">
-                            <img src="" alt="Site Icon" style="width: 15px ;height: 15px; margin-top: 12px;">
-                            <div class="site-title-wrapper">
-                                <span class="site-title"></span>
+                        <li class="site-entry" tabindex="-1" style="padding-top: 0px;">
+                            <img src="" alt="Site Icon" style="width: 15px ;height: 15px; margin-top: 6px;">
+                            <div class="site-title-wrapper" style="top: -100px;">
+                                <span class="site-title" style="padding-top: 0px;"></span>
                             </div>
-                            <input type="text" class="rename-input" style="display: none;">
-                            <div class="entry-controls" style="margin-top: 6px;">
+                            <input type="text" class="rename-input" style="display: none; padding-top: 10px;">
+                            <div class="entry-controls" style="margin-top: 2px;">
                                 <button class="move-up"></button>
                                 <button class="move-down"></button>
                                 <button class="rename"></button>
