@@ -1,3 +1,2 @@
 Add Firefox link to readme
 
-fix dropdown tab highlight mis-alighment
