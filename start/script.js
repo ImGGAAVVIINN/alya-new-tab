@@ -504,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // After a long delay, move it back to its original position
   setTimeout(() => {
     iframeContainer.style.top = '0'; // Move it back to the original position
-  }, 5500); // 5000ms (5 seconds) delay before moving it back
+  }, 5000); // 5000ms (5 seconds) delay before moving it back
 
   // Restore the original animation duration after moving it back
   setTimeout(() => {
@@ -513,8 +513,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setTimeout(() => {
     iframeContainer.style.top = '16px'; 
-  }, 5700);
-
+  }, 5200);
+ //1st setTimeout=5500  3rd setTimeout=5200 is garenteed to work
 });
 
 $(document).ready(function () {
