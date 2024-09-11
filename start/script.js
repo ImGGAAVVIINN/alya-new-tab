@@ -518,19 +518,28 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 $(document).ready(function () {
-  // Hide the apps menu when quick_access is hovered
+  // Hide the apps menu and topsites_menu when quick_access is hovered
   utils.resetMouseEnterHandler($(".quick_access"), function(e) {
       e.stopPropagation();
-      $("#tool_menu").fadeOut(200)  // Hide the apps dropdown
+      $("#tool_menu, #topsites_menu").fadeOut(200);  // Hide both apps and topsites dropdowns
       $(".quick_access_dropdown").show(200);  // Show the quick_access dropdown (if needed)
   });
 
   // Show the apps menu when it's hovered
   utils.resetMouseEnterHandler($(".apps"), function(e) {
       e.stopPropagation();
-      $(".apps").show(200);  // Show the apps dropdown
+      $("#tool_menu").fadeIn(200);  // Show the apps dropdown
+      $(".quick_access_dropdown, #topsites_menu").fadeOut(200);  // Hide other dropdowns
+  });
+
+  // Show the topsites_menu when most_visited is hovered
+  utils.resetMouseEnterHandler($(".most_visited"), function(e) {
+      e.stopPropagation();
+      $("#topsites_menu").fadeIn(200);  // Show the topsites dropdown
+      $("#tool_menu, .quick_access_dropdown").fadeOut(200);  // Hide other dropdowns
   });
 });
+
 
 
 

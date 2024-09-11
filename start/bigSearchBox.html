@@ -702,35 +702,63 @@
        
 </nav>
 
-<div class="widght">
-    <div class="toggle" data-toggle="tooltip" data-placement="bottom" title="Click to change your background">
-        <span id="background_selector_menu">Options</span>
-        <!--<a href="#" id="background_selector"><img id="background_selector_img" src="/start/skin/images/brush-white.png"></a>-->
-        <span href="#" id="weather" class="clock" ><img src="/start/skin/images/clock.png"></span>
-    </div>
-    <div class="time" data-toggle="tooltip" data-placement="bottom" title="Click to change between 24 and 12 hours">
-        <h1 class="hour">
-            12:00
-        </h1>
-        <div class="ampm">AM</div>
-        <div class="date">
-            <p class="day">Saturday</p>
-            <p class="num">31.12.2016</p>
+    <div class="search-box" style="top: 40%; width: 1750px; right: 0px; margin-left: 0px;">        
+        <div class="dropdown" tabindex="-1" style="z-index: 1000; font-family: Arial, sans-serif; color: white; top: 20px; position: sticky; margin-left: 150px; bottom: 100px;">
+            <button class="dropbtn" tabindex="-1" id="replace-me" style="text-shadow: 4px 4px 4px #00000050; left: -40px; font-family: Arial, sans-serif; color: white; position: absolute; font-size: 26px; padding-right: 10px;padding-left: 0px; padding-top: 7px; width: 310px;">Search with 
+            <img src="https://feren-os.github.io/start-page/resources/pickengine.png" alt="Change the Search Engine..." style="top: -20px; vertical-align: middle; "></button>
+            <div class="dropdown-content" id="dropdownContent" style="top: 40px; right: 50px;left: 100px; position: absolute;">
+                <div id="siteList" style="margin-bottom: 0px; margin-top: -4px; padding: 0 10px;">
+                    <!-- Dropdown items will be added here -->
+                    <div data-file="/start/search/search-form.js">Google</div>
+                    <div data-file="/start/search/search-form_youtube.js">YouTube</div>
+                    <div data-file="/start/search/search-form_bing.js">Bing</div>
+                    <div data-file="/start/search/search-form_yahoo.js">Yahoo</div>
+                    <div data-file="/start/search/search-form_brave.js">Brave</div>
+                    <div data-file="/start/search/search-form_ecosia.js">Ecosia</div>
+                    <div data-file="/start/search/search-form_duckduckgo.js">DuckDuckGo</div>
+                    <div data-file="/start/search/search-form_startpage.js">Startpage</div>
+                    <div data-file="/start/search/search-form_qwant.js">Qwant</div>
+                    <div data-file="/start/search/search-form_baidu.js">Baidu 百度</div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="weather">
-        
-        <h1 data-toggle="tooltip" data-placement="bottom" title="Click to change between °F and °C">
-          <span class="val"></span><em class="deg">&deg;</em><span id="weather_widget_unit" class="units">C</span>
-        </h1>
-        <div id="weather_info_display" class="fright" data-toggle="tooltip" data-placement="bottom" title="Click to change city">
-            <!--<div class="icon"><img src="" alt=""></div>-->
-            <div class="condition"></div>
-            <div class="city"></div>
+        <div id="search-box-wrapper" style="margin-left: 100px; margin-top: 20px;">
+            <div id="search-box">
+            <input id="search-input" dir="auto" type="search" autofocus="autofocus" tabindex="1" autocomplete="off" spellcheck="true" placeholder="Search the web...">
         </div>
+        </div>
+        <ul id="search-suggestion-pad"></ul>
     </div>
-    
-    <div id="myWeather" style="width: 100%;">
+
+    <div class="widght">
+        <div class="toggle" data-toggle="tooltip" data-placement="bottom" title="Click to change your background">
+            <span id="background_selector_menu">Options</span>
+            <!--<a href="#" id="background_selector"><img id="background_selector_img" src="/start/skin/images/brush-white.png"></a>-->
+            <span href="#" id="weather" class="clock" ><img src="/start/skin/images/clock.png"></span>
+        </div>
+        <div class="time" data-toggle="tooltip" data-placement="bottom" title="Click to change between 24 and 12 hours">
+            <h1 class="hour">
+                12:00
+            </h1>
+            <div class="ampm">AM</div>
+            <div class="date">
+                <p class="day">Saturday</p>
+                <p class="num">31.12.2016</p>
+            </div>
+        </div>
+        <div class="weather">
+            
+            <h1 data-toggle="tooltip" data-placement="bottom" title="Click to change between °F and °C">
+              <span class="val"></span><em class="deg">&deg;</em><span id="weather_widget_unit" class="units">C</span>
+            </h1>
+            <div id="weather_info_display" class="fright" data-toggle="tooltip" data-placement="bottom" title="Click to change city">
+                <!--<div class="icon"><img src="" alt=""></div>-->
+                <div class="condition"></div>
+                <div class="city"></div>
+            </div>
+        </div>
+
+        <div id="myWeather" style="width: 100%;">
             <iframe style="width: 400px; background-image: url(&quot;chrome-extension://cgdckhjamombkgnamokobdbobmmngpag/start/skin/images/weatherbg.png&quot;);" src="https://weatherwidgettest.netlify.app" width="100%" height="2000" frameborder="0"></iframe>
             <div id="myWeatherOverlay"></div>
         </div>
@@ -740,22 +768,19 @@
 
     
         <iframe id="iframeContainer" scrolling="no" frameBorder="0" id="overlayIframe" style="overflow: hidden; width: 300px;height: 612px;" src="https://weatherwidgettest.netlify.app/big.html"></iframe>
-    
 
-</div>
-
-<div id="error_box">
-    <table>
-        <tr>
-        <td id="error_weather_messager">
-            <p>Unable to get weather data. Click here to change city for weather.</p>
-        </td>
-        <td data-toggle="tooltip" data-placement="bottom" title="Click to disable Weather Indicator">
-            <img id="delete_button" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAEaUlEQVRoQ+2ZP0wjRxTGPzc265zOoOAGFyEVlNBE/CkMkk0LqSmAlgpEhYQEkXBlENDQAgX1QYuRbArAnV2CmzgFXIkdRTbnKzh9mx208e2fmb0xF538JMvFzs7Ob95737x9G8IPYqEfhANdkP+bJ7se6XqkQzvQqdBKAugFMNK27jKAGoAr3Tw6QWYBzFk/QngZYc6s37kOKB0gXPwegEEuKJVK1efn52ODg4Po7e3FyMi/TimXy6jVaqhWqzg9Pa1fXl7GLIAqgFULKjDTt4Bw4UcApvr7+//JZrPv5ubmzMXLGKHOzs6wvLzcajabYQAFAEsACKZsQUG4zflwOBxZX183VlZWpAHaV0ignZ2d52w2+9JqtT4BmKYDVUmCgCzSE4ZhtG5ubsIidFQf3D6eoTcxMSG8Q88cq8ypCkJPlIaGhprFYtGQDSPZBdE7Y2Njzfv7ewPAqIpnVECYEyXDMKKPj49h3RACljADAwP0TMOCkcoZFZB8JBIZKxaLPbrCyc1TDLPRUTrEFADmjK/JglBiP2xubmJra8t3Uh0DNjY2njOZTA+A32WkWRbkz3g8Hq9UKj85hVShUMDV1RUIqmIHBwdIJpOvZ439XoZYIpH43Gg0HgD86jevDIjpjaOjIywuUrC+tv39fayurprXOU7GlpaWcHx8jL29PVC+nYzXOU7GKzIglMGFp6cnz7OCECcnJ1IwAmJhYcGEcTN6pa+vj5dPADjvonWzDMhTKpUK5XI5UVK4PlgGRhZCPCSdTrOceQFgErmZH8gUT3CvsGqf2AtGFYJzi7C11Isq5mh+IGZ+5PN5TE2RSc6cYIJA8GkUkulpU4E91csPhFq7WSqVHJXFC8sOw3HMBb+ccJrPdqb8AcBV+6VAXl4YouomYHhnEAjxxFDIXOb3AxHhxFWoSHP7lmkDCRJa9pzgwmSluR1CV2gFSnanxJaRZqfg1ZXsyvLrpU5BYGynO6UrsPxyk2rpdDp0cXHx3i/dZSRWFWZmZubvXC5HtfF8h/ZTLVM5ZUoUGQixEbIwuksU6aJRRWIFzFsWjdzIajwe/7lSqbxzKuOpLExKtyrWLSRZfrBicHpRs8r4VqPR+ChaTV6hLRNavP97vFh9ymQyEb/S5PXQ9Etg2/VCJBL5jU2HN3zVZWtVqsiT9Qh52HwoR6NR4+HhoaPNh0QiwZBqWr1j7c0HwpjtoOHh4ebt7W1H2kHj4+PNu7u7jraDXtWTDbpoNNq6vr7W2qCbnJykJ9g+7XiDTsDQMzxlY+x2rK2t9QTtc1Gddnd3n7e3t9kxqVs58SYtUwHDnOFhmaR3Dg8Pw7Ozs9I9YAKcn5+bTWzLC0xsvpdL5cRXFbKCarkNpTTvA/iFA/iOLT4rxGKx/3xWqNfrr58VbD2AvwCwjcLvJYFNRbX8HiI+8vDfr1HBEBIfer4JIMg54gdiv07t9/r05lrFqjzEPlanR4KuQct9XRAt26hxkq5HNG6mlqm6HtGyjRon+QIFQRNRRPZ93AAAAABJRU5ErkJggg==">
-        </td>
-        </tr>
-    </table>
-</div>
+    <div id="error_box">
+        <table>
+            <tr>
+            <td id="error_weather_messager">
+                <p>Unable to get weather data. Click here to change city for weather.</p>
+            </td>
+            <td data-toggle="tooltip" data-placement="bottom" title="Click to disable Weather Indicator">
+                <img id="delete_button" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAEaUlEQVRoQ+2ZP0wjRxTGPzc265zOoOAGFyEVlNBE/CkMkk0LqSmAlgpEhYQEkXBlENDQAgX1QYuRbArAnV2CmzgFXIkdRTbnKzh9mx208e2fmb0xF538JMvFzs7Ob95737x9G8IPYqEfhANdkP+bJ7se6XqkQzvQqdBKAugFMNK27jKAGoAr3Tw6QWYBzFk/QngZYc6s37kOKB0gXPwegEEuKJVK1efn52ODg4Po7e3FyMi/TimXy6jVaqhWqzg9Pa1fXl7GLIAqgFULKjDTt4Bw4UcApvr7+//JZrPv5ubmzMXLGKHOzs6wvLzcajabYQAFAEsACKZsQUG4zflwOBxZX183VlZWpAHaV0ignZ2d52w2+9JqtT4BmKYDVUmCgCzSE4ZhtG5ubsIidFQf3D6eoTcxMSG8Q88cq8ypCkJPlIaGhprFYtGQDSPZBdE7Y2Njzfv7ewPAqIpnVECYEyXDMKKPj49h3RACljADAwP0TMOCkcoZFZB8JBIZKxaLPbrCyc1TDLPRUTrEFADmjK/JglBiP2xubmJra8t3Uh0DNjY2njOZTA+A32WkWRbkz3g8Hq9UKj85hVShUMDV1RUIqmIHBwdIJpOvZ439XoZYIpH43Gg0HgD86jevDIjpjaOjIywuUrC+tv39fayurprXOU7GlpaWcHx8jL29PVC+nYzXOU7GKzIglMGFp6cnz7OCECcnJ1IwAmJhYcGEcTN6pa+vj5dPADjvonWzDMhTKpUK5XI5UVK4PlgGRhZCPCSdTrOceQFgErmZH8gUT3CvsGqf2AtGFYJzi7C11Isq5mh+IGZ+5PN5TE2RSc6cYIJA8GkUkulpU4E91csPhFq7WSqVHJXFC8sOw3HMBb+ccJrPdqb8AcBV+6VAXl4YouomYHhnEAjxxFDIXOb3AxHhxFWoSHP7lmkDCRJa9pzgwmSluR1CV2gFSnanxJaRZqfg1ZXsyvLrpU5BYGynO6UrsPxyk2rpdDp0cXHx3i/dZSRWFWZmZubvXC5HtfF8h/ZTLVM5ZUoUGQixEbIwuksU6aJRRWIFzFsWjdzIajwe/7lSqbxzKuOpLExKtyrWLSRZfrBicHpRs8r4VqPR+ChaTV6hLRNavP97vFh9ymQyEb/S5PXQ9Etg2/VCJBL5jU2HN3zVZWtVqsiT9Qh52HwoR6NR4+HhoaPNh0QiwZBqWr1j7c0HwpjtoOHh4ebt7W1H2kHj4+PNu7u7jraDXtWTDbpoNNq6vr7W2qCbnJykJ9g+7XiDTsDQMzxlY+x2rK2t9QTtc1Gddnd3n7e3t9kxqVs58SYtUwHDnOFhmaR3Dg8Pw7Ozs9I9YAKcn5+bTWzLC0xsvpdL5cRXFbKCarkNpTTvA/iFA/iOLT4rxGKx/3xWqNfrr58VbD2AvwCwjcLvJYFNRbX8HiI+8vDfr1HBEBIfer4JIMg54gdiv07t9/r05lrFqjzEPlanR4KuQct9XRAt26hxkq5HNG6mlqm6HtGyjRon+QIFQRNRRPZ93AAAAABJRU5ErkJggg==">
+            </td>
+            </tr>
+        </table>
+    </div>
 
 <div id="background_selector_widget" class="triangle-top">
     <div id="tabs">
@@ -1163,33 +1188,6 @@
             <span class="close" id="close-undo-box-btn"></span>
         </div>
     </div>
-    <div class="search-box" style="top: 40%; width: 1750px; right: 0px; margin-left: 0px;">        
-        <div class="dropdown" tabindex="-1" style="z-index: 1000; font-family: Arial, sans-serif; color: white; top: 20px; position: sticky; margin-left: 150px; bottom: 100px;">
-            <button class="dropbtn" tabindex="-1" id="replace-me" style="text-shadow: 4px 4px 4px #00000050; left: -40px; font-family: Arial, sans-serif; color: white; position: absolute; font-size: 26px; padding-right: 10px;padding-left: 0px; padding-top: 7px; width: 310px;">Search with 
-            <img src="https://feren-os.github.io/start-page/resources/pickengine.png" alt="Change the Search Engine..." style="top: -20px; vertical-align: middle; "></button>
-            <div class="dropdown-content" id="dropdownContent" style="top: 40px; right: 50px;left: 100px; position: absolute;">
-                <div id="siteList" style="margin-bottom: 0px; margin-top: -4px; padding: 0 10px;">
-                    <!-- Dropdown items will be added here -->
-                    <div data-file="/start/search/search-form.js">Google</div>
-                    <div data-file="/start/search/search-form_youtube.js">YouTube</div>
-                    <div data-file="/start/search/search-form_bing.js">Bing</div>
-                    <div data-file="/start/search/search-form_yahoo.js">Yahoo</div>
-                    <div data-file="/start/search/search-form_brave.js">Brave</div>
-                    <div data-file="/start/search/search-form_ecosia.js">Ecosia</div>
-                    <div data-file="/start/search/search-form_duckduckgo.js">DuckDuckGo</div>
-                    <div data-file="/start/search/search-form_startpage.js">Startpage</div>
-                    <div data-file="/start/search/search-form_qwant.js">Qwant</div>
-                    <div data-file="/start/search/search-form_baidu.js">Baidu 百度</div>
-                </div>
-            </div>
-        </div>
-    <div id="search-box-wrapper" style="margin-left: 100px; margin-top: 20px;">
-        <div id="search-box">
-           <input id="search-input" dir="auto" type="search" autofocus="autofocus" tabindex="1" autocomplete="off" spellcheck="true" placeholder="Search the web...">
-       </div>
-    </div>
-    <ul id="search-suggestion-pad"></ul>
- </div>
 <!-- made with love by Happy GrassBlock :3 -->
     <footer>
         <div class="to-do">
