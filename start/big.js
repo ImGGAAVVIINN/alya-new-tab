@@ -46,7 +46,7 @@ window.addEventListener('load', () => {
     const overlay = document.querySelector('.overlay');
     setTimeout(() => {
         overlay.style.opacity = '0';
-    }, 0.00001); // Adjust delay if needed
+    }, 0); // Adjust delay if needed
 });
 
 
