@@ -1,8 +1,20 @@
-setTimeout(function() {
-  window.onload = function() {
-    window.scrollTo(0, 0); // Scrolls to the top-left corner of the page
-  };
-}, 1000);
+window.onload = function() {
+  setTimeout(function() {
+      window.scrollTo(0, 0); // Scrolls to the top-left corner of the page
+  }, 100); // 100 milliseconds = 0.1 second
+
+  setTimeout(function() {
+      window.scrollTo(0, 0); // Scrolls to the top-left corner of the page
+  }, 200); // 200 milliseconds = 0.2 second
+
+  setTimeout(function() {
+      window.scrollTo(0, 0); // Scrolls to the top-left corner of the page
+  }, 500); // 500 milliseconds = 0.5 second
+
+  setTimeout(function() {
+      window.scrollTo(0, 0); // Scrolls to the top-left corner of the page
+  }, 1000); // 1000 milliseconds = 1 second
+};
 
 document.getElementById('urlInput').addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
