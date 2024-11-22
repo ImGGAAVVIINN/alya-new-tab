@@ -1,3 +1,4 @@
 Add Firefox link to readme
 
 Make search box disapear too when autohide in big search bar
+Make rename for quick access stay where the text was instead of moving backward. and not make the dropdown retract
