@@ -111,6 +111,17 @@ function saveSiteEntry(url, faviconUrl, title) {
   displaySiteEntries(entries);
 }
 
+function applySiteListStyle() {
+  const siteList = document.getElementById('siteList');
+  if (siteList.children.length > 0) {
+    siteList.style.padding = '10px';
+    siteList.style.paddingTop = '6px';
+  } else {
+    siteList.style.padding = '';
+    siteList.style.paddingTop = '';
+  }
+}
+
 function displaySiteEntries(entries) {
   const siteList = document.getElementById('siteList');
   siteList.innerHTML = '';
@@ -182,6 +193,8 @@ function displaySiteEntries(entries) {
 
     siteList.appendChild(entryElement);
   });
+
+  applySiteListStyle(); // Apply style after updating the site list
 }
 
 function formatUrl(url) {
@@ -217,10 +230,10 @@ function moveEntryDown(index) {
 }
 
 function removeEntry(index) {
+document.addEventListener('DOMContentLoaded', function() {
   const entries = getEntries();
-  entries.splice(index, 1);
-  localStorage.setItem('siteEntries', JSON.stringify(entries));
   displaySiteEntries(entries);
+});isplaySiteEntries(entries);
 }
 
 function formatUrlInput(url) {
