@@ -197,6 +197,11 @@ function displaySiteEntries(entries) {
   applySiteListStyle(); // Apply style after updating the site list
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  const entries = getEntries();
+  displaySiteEntries(entries);
+});
+
 function formatUrl(url) {
   let formattedUrl = url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
   formattedUrl = formattedUrl.charAt(0).toUpperCase() + formattedUrl.slice(1);
@@ -230,10 +235,10 @@ function moveEntryDown(index) {
 }
 
 function removeEntry(index) {
-document.addEventListener('DOMContentLoaded', function() {
   const entries = getEntries();
+  entries.splice(index, 1);
+  localStorage.setItem('siteEntries', JSON.stringify(entries));
   displaySiteEntries(entries);
-});isplaySiteEntries(entries);
 }
 
 function formatUrlInput(url) {
@@ -369,19 +374,6 @@ function removeMetaTag() {
     metaTag.remove();
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 window.loadAutoHideModule = function(e) {
   if (e.autoHideThread)
