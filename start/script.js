@@ -111,6 +111,7 @@ function saveSiteEntry(url, faviconUrl, title) {
   displaySiteEntries(entries);
 }
 
+/**
 function applySiteListStyle() {
   const siteList = document.getElementById('siteList');
   if (siteList.children.length > 0) {
@@ -121,6 +122,7 @@ function applySiteListStyle() {
     siteList.style.paddingTop = '';
   }
 }
+*/
 
 function displaySiteEntries(entries) {
   const siteList = document.getElementById('siteList');
@@ -194,7 +196,7 @@ function displaySiteEntries(entries) {
     siteList.appendChild(entryElement);
   });
 
-  applySiteListStyle(); // Apply style after updating the site list
+  //applySiteListStyle(); // Apply style after updating the site list
 }
 
 document.addEventListener('DOMContentLoaded', function() {
