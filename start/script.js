@@ -111,18 +111,18 @@ function saveSiteEntry(url, faviconUrl, title) {
   displaySiteEntries(entries);
 }
 
-/**
 function applySiteListStyle() {
   const siteList = document.getElementById('siteList');
   if (siteList.children.length > 0) {
-    siteList.style.padding = '10px';
+    siteList.style.padding = '8px';
     siteList.style.paddingTop = '6px';
   } else {
-    siteList.style.padding = '';
+    siteList.style.paddingLeft = '8px';
+    siteList.style.paddingRight = '8px';
     siteList.style.paddingTop = '';
+    siteList.style.paddingBottom = '';
   }
 }
-*/
 
 function displaySiteEntries(entries) {
   const siteList = document.getElementById('siteList');
@@ -196,7 +196,7 @@ function displaySiteEntries(entries) {
     siteList.appendChild(entryElement);
   });
 
-  //applySiteListStyle(); // Apply style after updating the site list
+  applySiteListStyle(); // Apply style after updating the site list
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -558,10 +558,3 @@ $(document).ready(function () {
       $("#tool_menu, .quick_access_dropdown").fadeOut(200);  // Hide other dropdowns
   });
 });
-
-
-
-
-
-
-

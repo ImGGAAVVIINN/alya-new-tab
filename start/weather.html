@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IP-Based Weather App</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,900&display=swap');
+
+.font {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  text-shadow: #000000 1px 80 10px;
+}
+
+    body {
+      position: relative;
+      font-weight: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 153px;
+      width: 200px;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      color: white;
+      overflow: hidden;
+      font-family: "Roboto", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 900;
+      font-style: normal;
+      font-variation-settings:
+        "wdth" 100;
+    }
+
+    .weather-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      transform: translateY(-25px);
+      box-sizing: border-box;
+    }
+
+    .weather-container::before {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(10px);
+      top: 50%;
+      left: 50%;
+      transform: translate(-52%, -58%);
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .city {
+      font-size: 0.7rem;
+      font-weight: 100;
+      margin: 0;
+    }
+
+    .temp {
+      font-size: 1.4rem;
+      font-weight: 100;
+      margin: 0.2rem 0 0 0;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .description {
+      font-size: 0.6rem;
+      font-weight: 100;
+      text-transform: capitalize;
+      margin-top: 0.2rem;
+    }
+  </style>
+</head>
+<body class="font">
+  <div class="weather-container">
+  <div class="left-column">
+    <div id="city" class="city">Loading...</div>
+    <div id="temp" class="temp"></div>
+  </div>
+  <div class="right-column">
+    <img id="icon" class="icon" src="" alt="Weather Icon" />
+    <div id="description" class="description"></div>
+  </div>
+</div>
+
+  
+  <script src="weather.js"></script>
+</body>
+</html>

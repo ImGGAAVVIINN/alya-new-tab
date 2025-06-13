@@ -583,6 +583,8 @@
     </style>
 
 </head>
+
+</head>
 <body>
 
     <br id="replace-me">
@@ -638,9 +640,9 @@
                         </li>
                     </template>
                     
+                </div>
             </div>
         </div>
-    </div>
              
         
 <!-- made with love by Happy GrassBlock :3 -->
@@ -649,33 +651,33 @@
 
     <div class="search-box" style="top: 0px;">
         
-           <div class="dropdown" tabindex="-1" style="font-family: Arial, sans-serif; color: white; top: 20px; width: 300px;">
-               <button class="dropbtn" tabindex="-1" style="left: -40px; font-family: Arial, sans-serif; color: white; position: absolute; font-size: 20px; padding-right: 10px;padding-left: 0px; padding-top: 7px;">Search with 
-                <img src="https://feren-os.github.io/start-page/resources/pickengine.png" alt="Change the Search Engine..." style="top: -20px; vertical-align: middle; width: 20px; height: 20px;"></button>
-                <div class="dropdown-content" id="dropdownContent" style="top: 40px; right: 220px;">
-                    <div id="siteList" style="margin-bottom: 0px; margin-top: -4px; padding: 0 10px;">
-                        <div data-file="/start/search/search-form.js">Google</div>
-                        <div data-file="/start/search/search-form_youtube.js">YouTube</div>
-                        <div data-file="/start/search/search-form_bing.js">Bing</div>
-                        <div data-file="/start/search/search-form_yahoo.js">Yahoo</div>
-                        <div data-file="/start/search/search-form_brave.js">Brave</div>
-                        <div data-file="/start/search/search-form_ecosia.js">Ecosia</div>
-                        <div data-file="/start/search/search-form_duckduckgo.js">DuckDuckGo</div>
-                        <div data-file="/start/search/search-form_startpage.js">Startpage</div>
-                        <div data-file="/start/search/search-form_qwant.js">Qwant</div>
-                        <div data-file="/start/search/search-form_baidu.js">Baidu 百度</div>
-                    </div>
-                </div>
-           </div>
-      
-
-
-        <div id="search-box-wrapper" style="margin-left: 100px;">
-            <div id="search-box">
-                <input id="search-input" class="searchInput" dir="auto" type="search" autofocus="autofocus" tabindex="1" autocomplete="off" spellcheck="true" placeholder="Search the web...">
-            </div>
+        <div class="dropdown" tabindex="-1" style="font-family: Arial, sans-serif; color: white; top: 20px; width: 300px;">
+            <button class="dropbtn" tabindex="-1" style="left: -40px; font-family: Arial, sans-serif; color: white; position: absolute; font-size: 20px; padding-right: 10px;padding-left: 0px; padding-top: 7px;">Search with 
+             <img src="https://feren-os.github.io/start-page/resources/pickengine.png" alt="Change the Search Engine..." style="top: -20px; vertical-align: middle; width: 20px; height: 20px;"></button>
+             <div class="dropdown-content" id="dropdownContent" style="top: 40px; right: 220px;">
+                 <div id="siteList" style="margin-bottom: 0px; margin-top: -4px; padding: 0 10px;">
+                     <div data-file="/start/search/search-form.js">Google</div>
+                     <div data-file="/start/search/search-form_youtube.js">YouTube</div>
+                     <div data-file="/start/search/search-form_bing.js">Bing</div>
+                     <div data-file="/start/search/search-form_yahoo.js">Yahoo</div>
+                     <div data-file="/start/search/search-form_brave.js">Brave</div>
+                     <div data-file="/start/search/search-form_ecosia.js">Ecosia</div>
+                     <div data-file="/start/search/search-form_duckduckgo.js">DuckDuckGo</div>
+                     <div data-file="/start/search/search-form_startpage.js">Startpage</div>
+                     <div data-file="/start/search/search-form_qwant.js">Qwant</div>
+                     <div data-file="/start/search/search-form_baidu.js">Baidu 百度</div>
+                 </div>
+             </div>
         </div>
-        <ul id="search-suggestion-pad"></ul>
+   
+
+
+     <div id="search-box-wrapper" style="margin-left: 100px;">
+         <div id="search-box">
+             <input id="search-input" class="searchInput" dir="auto" type="search" autofocus="autofocus" tabindex="1" autocomplete="off" spellcheck="true" placeholder="Search the web...">
+         </div>
+     </div>
+     <ul id="search-suggestion-pad"></ul>
     </div>
 
     <div class="widght">
@@ -697,7 +699,7 @@
         <div class="weather">
             
             <h1 data-toggle="tooltip" data-placement="bottom" title="Click to change between °F and °C">
-              <span class="val"></span><em class="deg">&deg;</em><span id="weather_widget_unit" class="units">C</span>
+            <span class="val"></span><em class="deg">&deg;</em><span id="weather_widget_unit" class="units">C</span>
             </h1>
             <div id="weather_info_display" class="fright" data-toggle="tooltip" data-placement="bottom" title="Click to change city">
                 <!--<div class="icon"><img src="" alt=""></div>-->
@@ -706,10 +708,12 @@
             </div>
         </div>
 
+        
         <div id="myWeather" style="width: 100%;">
-            <iframe style="width: 400px; background-image: url(&quot;chrome-extension://cgdckhjamombkgnamokobdbobmmngpag/start/skin/images/weatherbg.png&quot;);" src="https://weatherwidgettest.netlify.app" width="100%" height="2000" frameborder="0"></iframe>
+            <iframe style="width: 400px height=2000px background-image: url(&quot;chrome-extension://cgdckhjamombkgnamokobdbobmmngpag/start/skin/images/weatherbg.png&quot;);" src="weather.html" frameborder="0"></iframe>
             <div id="myWeatherOverlay"></div>
         </div>
+        
 
         
     </div>
@@ -728,7 +732,9 @@
             </td>
             </tr>
         </table>
-    </div>
+    </div> 
+
+</div>
 
 <div id="background_selector_widget" class="triangle-top">
     <div id="tabs">
@@ -1076,69 +1082,69 @@
             </div>
         </div>
     </div>
+
 <!-- made with love by Happy GrassBlock :3 -->
-    <div class="bgFooter">
-        <div class="bg-f-r">
-            <div class="bg-f-c">
-                <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Shuffle all images of current newtab">
-                    <input type="checkbox" id="shuffle_background" />
-                    <span class="checkmark"></span>Shuffle All Images
-                </label>               
-            </div>
-            <div class="bg-f-c">
-                <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Shuffle images you mark favorites by clicking &#9825;" >
-                    <input type="checkbox" id="shuffle_favorites" />
-                    <span class="checkmark"></span>Shuffle Favorite Images
-                </label>
-            </div>
-            <div class="bg-f-c">
-                <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Random all images of newtabs you installed and set enabled">
-                    <input type="checkbox" id="random_all_newtab" />
-                    <span class="checkmark"></span>Random All NewTabs
-                </label>
-            </div>
+<div class="bgFooter">
+    <div class="bg-f-r">
+        <div class="bg-f-c">
+            <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Shuffle all images of current newtab">
+                <input type="checkbox" id="shuffle_background" />
+                <span class="checkmark"></span>Shuffle All Images
+            </label>               
         </div>
-
-        <div class="bg-f-r">
-            <div class="bg-f-c">
-                <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Mark all images as favorites and then you can quickly dislike a few">
-                    <input type="checkbox" id="favor_all_images" />
-                    <span class="checkmark"></span>Favor All Images
-                </label>
-            </div>
-            <div class="bg-f-c">
-                <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="New images are added in minor updates. Automatically mark them as favorites.">
-                    <input type="checkbox" id="favor_new_images" />
-                    <span class="checkmark"></span>Auto Favor New Images
-                </label>
-            </div>
-            <div class="bg-f-c">
-            </div>
+        <div class="bg-f-c">
+            <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Shuffle images you mark favorites by clicking &#9825;" >
+                <input type="checkbox" id="shuffle_favorites" />
+                <span class="checkmark"></span>Shuffle Favorite Images
+            </label>
         </div>
+        <div class="bg-f-c">
+            <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Random all images of newtabs you installed and set enabled">
+                <input type="checkbox" id="random_all_newtab" />
+                <span class="checkmark"></span>Random All NewTabs
+            </label>
+        </div>
+    </div>
 
-        <div id="change_city_box" style="display: none;">
-            <!-- <h4 class="f-heading">Change weather location</h4> -->
-            <input id="city_name" disabled>
-            <input type="submit" id="change_city" value="Change City" data-toggle="tooltip" data-placement="top" title="Change location for accurate weather information">
-            <div class="option_bottom" id="checkbox_disable_weather" data-toggle="tooltip" data-placement="top" title="Display / Hide weather indicator">
-                <label class="checkbox tiny">
-                    <input type="checkbox" id="disable_weather" />
-                    <span class="checkmark"></span>Disable Weather
-                </label>
-            </div>
+    <div class="bg-f-r">
+        <div class="bg-f-c">
+            <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="Mark all images as favorites and then you can quickly dislike a few">
+                <input type="checkbox" id="favor_all_images" />
+                <span class="checkmark"></span>Favor All Images
+            </label>
+        </div>
+        <div class="bg-f-c">
+            <label class="checkbox tiny" data-toggle="tooltip" data-placement="top" title="New images are added in minor updates. Automatically mark them as favorites.">
+                <input type="checkbox" id="favor_new_images" />
+                <span class="checkmark"></span>Auto Favor New Images
+            </label>
+        </div>
+            <div class="bg-f-c">
+        </div>
+    </div>
+
+    <div id="change_city_box" style="display: none;">
+        <!-- <h4 class="f-heading">Change weather location</h4> -->
+        <input id="city_name" disabled>
+        <input type="submit" id="change_city" value="Change City" data-toggle="tooltip" data-placement="top" title="Change location for accurate weather information">
+        <div class="option_bottom" id="checkbox_disable_weather" data-toggle="tooltip" data-placement="top" title="Display / Hide weather indicator">
+            <label class="checkbox tiny">
+                <input type="checkbox" id="disable_weather" />
+                <span class="checkmark"></span>Disable Weather
+            </label>
         </div>
     </div>
 </div>
 
-    <div class="undo-box undo-box-hide">
-        <div class="_row">
-            <span id="msg"></span>
-            <span class="undo-btn"  id="undobtn" >Undo</span>
-            <span class="close" id="close-undo-box-btn"></span>
-        </div>
+<div class="undo-box undo-box-hide">
+    <div class="_row">
+        <span id="msg"></span>
+        <span class="undo-btn"  id="undobtn" >Undo</span>
+        <span class="close" id="close-undo-box-btn"></span>
     </div>
+</div>
 <!-- made with love by Happy GrassBlock :3 -->
-    <footer>
+<footer>
         <div class="to-do">
             <a id="lnk_todo">Todo</a>
             <div class="todo-panel">
@@ -1184,8 +1190,8 @@
                 <div><a class="uninstallSelf">Uninstall</a></div>
             </div>
         </div>
-    </footer>
-</div>-->
+        -->
+</footer>
 
 <div class="countDown">
     <ul id="countdown" style="display: none;">
@@ -1242,6 +1248,4 @@
 
 <script src="script.js"></script>
 
-
 </body>
-</html> 
