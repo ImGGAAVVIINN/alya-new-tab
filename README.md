@@ -91,7 +91,7 @@ Screenshots
 1. Clone this repo:
 
 ```sh
-$ git clone https://github.com/plibither8/markdown-new-tab
+$ git clone https://github.com/ImGGAAVVIINN/alya-new-tab.git
 ```
 **OR**  
 green '<> Code' button --> 'Download ZIP' & Unzip the archive you just downloaded  
