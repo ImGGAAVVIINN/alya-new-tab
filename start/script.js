@@ -90,18 +90,93 @@ dropdown.addEventListener('keydown', function(e) {
 });
 
 async function addSiteEntry(url) {
-  const faviconUrl = `https://s2.googleusercontent.com/s2/favicons?domain_url=${url}`;
   const formattedTitle = formatUrl(url);
-
+  
+  // Primary favicon URL (Google's service)
+  let faviconUrl = `https://s2.googleusercontent.com/s2/favicons?domain_url=${url}`;
+  
   try {
     const response = await fetch(`https://api.microlink.io?url=${url}`);
     const data = await response.json();
     const title = data.data.title || formattedTitle;
+    
+    // Try to get favicon from microlink.io API as well
+    const apiFaviconUrl = data.data.logo || data.data.image;
+    if (apiFaviconUrl) {
+      // Handle both string URLs and object URLs
+      if (typeof apiFaviconUrl === 'string') {
+        faviconUrl = apiFaviconUrl;
+      } else if (apiFaviconUrl && apiFaviconUrl.url) {
+        faviconUrl = apiFaviconUrl.url;
+      }
+    }
+    
     saveSiteEntry(url, faviconUrl, title);
   } catch (error) {
-    console.error('Error fetching site title:', error);
+    console.error('Error fetching site data:', error);
     saveSiteEntry(url, faviconUrl, formattedTitle);
   }
+}
+
+function createImageWithFallback(faviconUrl, fallbackUrl, altText = "Site Icon") {
+  const img = document.createElement('img');
+  img.alt = altText;
+  img.style.width = '15px';
+  img.style.height = '15px';
+  img.style.marginTop = '8px';
+  
+  // Ensure faviconUrl is a string, not an object
+  let finalFaviconUrl = faviconUrl;
+  if (typeof faviconUrl === 'object' && faviconUrl.url) {
+    finalFaviconUrl = faviconUrl.url;
+  } else if (typeof faviconUrl !== 'string') {
+    console.warn('Invalid favicon URL format:', faviconUrl);
+    finalFaviconUrl = fallbackUrl; // Use fallback immediately if format is wrong
+  }
+  
+  // Primary favicon URL
+  img.src = finalFaviconUrl;
+  
+  // Fallback when primary fails
+  img.onerror = function() {
+    console.log('Primary favicon failed, trying fallback for:', finalFaviconUrl);
+    
+    if (this.src !== fallbackUrl) {
+      this.src = fallbackUrl;
+      
+      // If fallback also fails, use a default icon or letter
+      this.onerror = function() {
+        console.log('Fallback favicon also failed, using default');
+        // You can either use a default icon URL or create a text-based icon
+        this.style.display = 'none'; // Hide the broken image
+        
+        // Create a text-based fallback
+        const textIcon = document.createElement('div');
+        textIcon.style.width = '15px';
+        textIcon.style.height = '15px';
+        textIcon.style.marginTop = '8px';
+        textIcon.style.backgroundColor = '#4285f4';
+        textIcon.style.color = 'white';
+        textIcon.style.fontSize = '10px';
+        textIcon.style.textAlign = 'center';
+        textIcon.style.lineHeight = '15px';
+        textIcon.style.borderRadius = '2px';
+        
+        // Extract domain name for the letter
+        try {
+          const domain = new URL(fallbackUrl.includes('://') ? fallbackUrl : 'https://' + fallbackUrl).hostname;
+          textIcon.textContent = domain.charAt(0).toUpperCase();
+        } catch(e) {
+          textIcon.textContent = '?';
+        }
+        
+        // Replace the img with the text icon
+        this.parentNode.replaceChild(textIcon, this);
+      };
+    }
+  };
+  
+  return img;
 }
 
 function saveSiteEntry(url, faviconUrl, title) {
@@ -130,14 +205,21 @@ function displaySiteEntries(entries) {
   entries.forEach((entry, index) => {
     const entryElement = document.getElementById('siteEntryTemplate').content.cloneNode(true);
     const siteEntry = entryElement.querySelector('.site-entry');
-    siteEntry.querySelector('img').src = entry.faviconUrl;
+    
+    // Replace the existing img with our fallback-enabled version
+    const existingImg = siteEntry.querySelector('img');
+    const domain = new URL(entry.url).hostname;
+    const fallbackFaviconUrl = `https://favicon.yandex.net/favicon/${domain}`;
+    const newImg = createImageWithFallback(entry.faviconUrl, fallbackFaviconUrl, 'Site Icon');
+    existingImg.parentNode.replaceChild(newImg, existingImg);
+    
     const siteTitle = siteEntry.querySelector('.site-title');
     const renameInput = siteEntry.querySelector('.rename-input');
 
-    siteEntry.dataset.url = entry.url; // Store the URL in a data attribute
-
+    siteEntry.dataset.url = entry.url;
     siteTitle.textContent = entry.title;
 
+    // ... rest of your existing displaySiteEntries code remains the same
     siteEntry.addEventListener('focus', () => {
       siteEntry.classList.add('focused');
     });
@@ -183,12 +265,12 @@ function displaySiteEntries(entries) {
       removeEntry(index);
     });
     siteEntry.addEventListener('click', (e) => {
-      if (e.button === 0) { // Left click
+      if (e.button === 0) {
         window.location.href = entry.url;
       }
     });
     siteEntry.addEventListener('auxclick', (e) => {
-      if (e.button === 1) { // Middle click
+      if (e.button === 1) {
         window.open(entry.url, '_blank');
       }
     });
@@ -196,7 +278,7 @@ function displaySiteEntries(entries) {
     siteList.appendChild(entryElement);
   });
 
-  applySiteListStyle(); // Apply style after updating the site list
+  applySiteListStyle();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
