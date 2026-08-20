@@ -4,15 +4,21 @@
     const descEl = document.getElementById('description');
     const iconEl = document.getElementById('icon');
 
+    // Default fallback location
+    const fallbackLocation = 'New York, US';
+
     // Step 1: Get user's IP-based location
-    fetch('https://ipapi.co/json/')
+    fetch('https://ipinfo.io/json')
       .then(res => res.json())
       .then(location => {
-        const { latitude, longitude, city, region, country_name } = location;
-        cityEl.textContent = `${city}, ${region}, ${country_name}`;
+        const { city, region, country } = location;
+        // Use fallback if location data is unavailable
+        const locCity = city || fallbackLocation.split(',')[0];
+        const locRegion = region || 'US';
+        cityEl.textContent = `${locCity}, ${locRegion}, ${country}`;
         // Step 2: Fetch weather data
         return fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`
+          `https://api.openweathermap.org/data/2.5/weather?q=${locCity},${locRegion}&units=metric&appid=${apiKey}`
         );
       })
       .then(res => res.json())
