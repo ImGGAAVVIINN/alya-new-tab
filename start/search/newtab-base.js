@@ -77,7 +77,7 @@
             }
             function r(e) {
                 var t = e.lp + "?utm_campaign=Extensions&utm_medium=relative&utm_source=" + chrome.runtime.id;
-                var a = '<img src="' + (e.art || chrome.extension.getURL("/start/skin/images/extension_grey.png")) + '" />';
+                var a = '<img src="' + (e.art || chrome.runtime.getURL("/start/skin/images/extension_grey.png")) + '" />';
                 var o = "<p>" + e.name + "</p>";
                 if (e.lp) {
                     a = '<a href="' + t + '" target="_blank">' + a + "</a>";

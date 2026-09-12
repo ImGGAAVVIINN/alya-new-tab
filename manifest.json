@@ -1,6 +1,5 @@
 {
-"update_url": "https://clients2.google.com/service/update2/crx",
-
+  "update_url": "https://clients2.google.com/service/update2/crx",
   "version": "0.1.9.11",
   "name": "Alya Start Page",
   "description": "__MSG_extDesc__",
@@ -10,14 +9,18 @@
     "newtab": "/start/index.html"
   },
   "background": {
-    "service_worker": "/start/chrome/settings.js"
+    "service_worker": "/start/chrome/background-mv3.js"
   },
   "content_scripts": [
     {
       "all_frames": false,
       "run_at": "document_end",
-      "js": [ "/start/search/content-homepage.js" ],
-      "matches": [ "https://*.google.com/*" ]
+      "js": [
+        "/start/search/content-homepage.js"
+      ],
+      "matches": [
+        "https://*.google.com/*"
+      ]
     }
   ],
   "action": {
@@ -26,8 +29,7 @@
       "16": "start/skin/icons/16.png",
       "48": "start/skin/icons/48.png"
     },
-    "default_title": "Alya Start Page",
-    "default_popup": "/start/settings.html"
+    "default_title": "Alya Start Page"
   },
   "icons": {
     "128": "start/skin/icons/128.png",
@@ -36,8 +38,12 @@
   },
   "web_accessible_resources": [
     {
-      "resources": [ "start/skin/*" ],
-      "matches": [ "<all_urls>" ]
+      "resources": [
+        "start/skin/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ],
   "host_permissions": [
@@ -46,7 +52,8 @@
   "permissions": [
     "unlimitedStorage",
     "topSites",
-    "management"
+    "management",
+    "storage"
   ],
   "manifest_version": 3,
   "browser_specific_settings": {

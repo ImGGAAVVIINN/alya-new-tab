@@ -70,8 +70,10 @@
             chrome.runtime.sendMessage({
                 appGetAll: true
             }, function(e) {
+                if (chrome.runtime.lastError) { e = []; }
+                if (!Array.isArray(e)) { e = []; }
                 var o = e.filter(function(e) {
-                    return typeof e.appLaunchUrl !== "undefined"
+                    return e && typeof e.appLaunchUrl !== "undefined"
                 });
                 for (var a = 0; a < o.length; a++) {
                     var s = o[a];
@@ -85,7 +87,7 @@
                     var u = document.createElement("DIV");
                     u.className = "closebtn";
                     u.setAttribute("hide-app", "app:" + s.id);
-                    r.setAttribute("style", "background-image:url('" + s.icons[0].url + "');background-size:cover;");
+                    r.setAttribute("style", "background-image:url('" + (s.icons && s.icons[0] && s.icons[0].url) || '' + "');background-size:cover;");
                     n.setAttribute("id", s.id);
                     n.addEventListener("click", function() {
                         chrome.runtime.sendMessage({
@@ -126,6 +128,8 @@
             chrome.runtime.sendMessage({
                 topSites: true
             }, function(e) {
+                if (chrome.runtime.lastError) { e = []; }
+                if (!Array.isArray(e)) { e = []; }
                 var t = 0;
                 $("#topsites_menu").html('<p id="cantFixLol">  ‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎Your most visited sites!</p>');
                 for (var o = 0; o < e.length; o++) {
